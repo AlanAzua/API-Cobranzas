@@ -1,0 +1,1330 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Api Cobranzas</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-4.13.0.js"></script>
+
+    <script src="../docs/js/theme-default-4.13.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image"/>
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-administrador-cobranza" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="administrador-cobranza">
+                    <a href="#administrador-cobranza">Administrador Cobranza</a>
+                </li>
+                                    <ul id="tocify-subheader-administrador-cobranza" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="administrador-cobranza-GETv1-cobranzas">
+                                <a href="#administrador-cobranza-GETv1-cobranzas">Esta API tiene como finalidad mostrar la información de la base de datos, filtrada por 4 campos distintos, los cuales son:
+ cliente, equipo, vendedor y cobrador. Estos filtros harán que se facilite la visualización y busqueda de estos datos.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETv1-healthcheck">
+                                <a href="#endpoints-GETv1-healthcheck">Healthcheck</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+    <ul class="toc-footer" id="toc-footer">
+                    <li style="padding-bottom: 5px;"><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+    </ul>
+
+    <ul class="toc-footer" id="last-updated">
+        <li>Last updated: February 2, 2023</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>Esta API de Cobranza facilita la información actualizada de las cobranzas que se hicieron.</p>
+<aside>
+    <strong>Base URL</strong>: <code>http://localhost:8080</code>
+</aside>
+<p>Esta documentaión provee toda la información necesaria para trabajar con esta API.</p>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>To authenticate requests, include a query parameter <strong><code>apikey</code></strong> in the request.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
+
+        <h1 id="administrador-cobranza">Administrador Cobranza</h1>
+
+    
+
+                                <h2 id="administrador-cobranza-GETv1-cobranzas">Esta API tiene como finalidad mostrar la información de la base de datos, filtrada por 4 campos distintos, los cuales son:
+ cliente, equipo, vendedor y cobrador. Estos filtros harán que se facilite la visualización y busqueda de estos datos.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETv1-cobranzas">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/v1/cobranzas"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/v1/cobranzas"
+);
+
+fetch(url, {
+    method: "GET",
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETv1-cobranzas">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;current_page&quot;: 1,
+    &quot;data&quot;: [
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 1899122,
+            &quot;equipo&quot;: 516,
+            &quot;vendedor&quot;: &quot;VVALENZUELA&quot;,
+            &quot;negocio_eerr&quot;: &quot;DIMERC CORP&quot;,
+            &quot;rutcli&quot;: &quot;81698900&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;90 DIAS&quot;,
+            &quot;codven&quot;: 10298980,
+            &quot;fecemi&quot;: &quot;2022-09-30 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2022-12-29 00:00:00&quot;,
+            &quot;totgen&quot;: -176287,
+            &quot;totsal&quot;: -176287,
+            &quot;dias_calc&quot;: 90,
+            &quot;dias&quot;: 90,
+            &quot;cobrador&quot;: &quot;FECARRASCO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;1&quot;,
+            &quot;clasifica&quot;: &quot;HOLDING&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DG&quot;,
+            &quot;rendida&quot;: &quot;S&quot;,
+            &quot;doc_financiero&quot;: &quot;1600029129&quot;,
+            &quot;cia_seg_sap&quot;: &quot;Nominado&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;H&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2022-09-30 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20220930&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: &quot;Z090&quot;,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: null,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1745241&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1745241&quot;,
+            &quot;observacion_adicional&quot;: &quot;0001745241&quot;,
+            &quot;dias_ven&quot;: 35,
+            &quot;provision&quot;: &quot;No&quot;,
+            &quot;rango_morosidad&quot;: &quot;c. 31-60&quot;,
+            &quot;status&quot;: &quot;Abono&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Ncr Sap&quot;,
+            &quot;factura_asociada&quot;: null
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 8416388,
+            &quot;equipo&quot;: 516,
+            &quot;vendedor&quot;: &quot;PRIOSECO&quot;,
+            &quot;negocio_eerr&quot;: &quot;DIMERC CORP&quot;,
+            &quot;rutcli&quot;: &quot;81201000&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;CENCOSUD RETAIL S.A.&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;30 DIAS&quot;,
+            &quot;codven&quot;: 12498287,
+            &quot;fecemi&quot;: &quot;2019-04-18 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2019-05-18 00:00:00&quot;,
+            &quot;totgen&quot;: 218460,
+            &quot;totsal&quot;: 218460,
+            &quot;dias_calc&quot;: 30,
+            &quot;dias&quot;: 30,
+            &quot;cobrador&quot;: &quot;FECARRASCO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;1&quot;,
+            &quot;clasifica&quot;: &quot;HOLDING&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DR&quot;,
+            &quot;rendida&quot;: &quot;N&quot;,
+            &quot;doc_financiero&quot;: &quot;1800173169&quot;,
+            &quot;cia_seg_sap&quot;: &quot;0.00&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;S&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2019-04-18 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20190617&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: null,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: &quot;Contab. Factura                                                                                     &quot;,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1745151&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1745151&quot;,
+            &quot;observacion_adicional&quot;: null,
+            &quot;dias_ven&quot;: 1356,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Vencido&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Factura Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;8416388&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 8583988,
+            &quot;equipo&quot;: 516,
+            &quot;vendedor&quot;: &quot;VVALENZUELA&quot;,
+            &quot;negocio_eerr&quot;: &quot;DIMERC CORP&quot;,
+            &quot;rutcli&quot;: &quot;81698900&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;90 DIAS&quot;,
+            &quot;codven&quot;: 10298980,
+            &quot;fecemi&quot;: &quot;2019-08-07 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2019-09-06 00:00:00&quot;,
+            &quot;totgen&quot;: 59912,
+            &quot;totsal&quot;: 59912,
+            &quot;dias_calc&quot;: 30,
+            &quot;dias&quot;: 30,
+            &quot;cobrador&quot;: &quot;FECARRASCO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;1&quot;,
+            &quot;clasifica&quot;: &quot;HOLDING&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DR&quot;,
+            &quot;rendida&quot;: &quot;N&quot;,
+            &quot;doc_financiero&quot;: &quot;1800394474&quot;,
+            &quot;cia_seg_sap&quot;: &quot;0.00&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;S&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2019-08-07 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20191105&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: null,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: &quot;Contab. Refacturaci&Atilde;&fnof;&Acirc;&sup3;n                                                                              &quot;,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1745241&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1745241&quot;,
+            &quot;observacion_adicional&quot;: null,
+            &quot;dias_ven&quot;: 1245,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Vencido&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Factura Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;8583988&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 1747177,
+            &quot;equipo&quot;: 516,
+            &quot;vendedor&quot;: &quot;VVALENZUELA&quot;,
+            &quot;negocio_eerr&quot;: &quot;DIMERC CORP&quot;,
+            &quot;rutcli&quot;: &quot;81698900&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;90 DIAS&quot;,
+            &quot;codven&quot;: 10298980,
+            &quot;fecemi&quot;: &quot;2019-05-02 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2019-05-02 00:00:00&quot;,
+            &quot;totgen&quot;: -97893,
+            &quot;totsal&quot;: -97893,
+            &quot;dias_calc&quot;: 0,
+            &quot;dias&quot;: 0,
+            &quot;cobrador&quot;: &quot;FECARRASCO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;1&quot;,
+            &quot;clasifica&quot;: &quot;HOLDING&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DG&quot;,
+            &quot;rendida&quot;: &quot;FG&quot;,
+            &quot;doc_financiero&quot;: &quot;1600022225&quot;,
+            &quot;cia_seg_sap&quot;: &quot;0.00&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;H&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2019-05-02 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20190630&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: null,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: &quot;Contab NC Bloq                                                                                      &quot;,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1745241&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1745241&quot;,
+            &quot;observacion_adicional&quot;: null,
+            &quot;dias_ven&quot;: 1372,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Abono&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Ncr Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;8206311&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 8481269,
+            &quot;equipo&quot;: 516,
+            &quot;vendedor&quot;: &quot;PRIOSECO&quot;,
+            &quot;negocio_eerr&quot;: &quot;DIMERC CORP&quot;,
+            &quot;rutcli&quot;: &quot;76568660&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;EASY RETAIL S.A. .-&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;30 DIAS&quot;,
+            &quot;codven&quot;: 12498287,
+            &quot;fecemi&quot;: &quot;2019-07-15 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2019-08-14 00:00:00&quot;,
+            &quot;totgen&quot;: 666438,
+            &quot;totsal&quot;: 666438,
+            &quot;dias_calc&quot;: 30,
+            &quot;dias&quot;: 30,
+            &quot;cobrador&quot;: &quot;FECARRASCO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;1&quot;,
+            &quot;clasifica&quot;: &quot;HOLDING&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DR&quot;,
+            &quot;rendida&quot;: &quot;N&quot;,
+            &quot;doc_financiero&quot;: &quot;1800355544&quot;,
+            &quot;cia_seg_sap&quot;: &quot;0.00&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;S&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2019-07-15 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20190913&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: null,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: &quot;Contab. Factura Refac                                                                               &quot;,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: &quot;S&quot;,
+            &quot;motivo_bloqueo&quot;: &quot;Por Refacturaci&Atilde;&fnof;&Acirc;&sup3;n&quot;,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1728873&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1728873&quot;,
+            &quot;observacion_adicional&quot;: null,
+            &quot;dias_ven&quot;: 1268,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Vencido&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Factura Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;8481269&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 8478921,
+            &quot;equipo&quot;: 516,
+            &quot;vendedor&quot;: &quot;PRIOSECO&quot;,
+            &quot;negocio_eerr&quot;: &quot;DIMERC CORP&quot;,
+            &quot;rutcli&quot;: &quot;76568660&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;EASY RETAIL S.A. .-&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;30 DIAS&quot;,
+            &quot;codven&quot;: 12498287,
+            &quot;fecemi&quot;: &quot;2019-10-01 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2019-10-31 00:00:00&quot;,
+            &quot;totgen&quot;: 76912,
+            &quot;totsal&quot;: 76912,
+            &quot;dias_calc&quot;: 30,
+            &quot;dias&quot;: 30,
+            &quot;cobrador&quot;: &quot;FECARRASCO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;1&quot;,
+            &quot;clasifica&quot;: &quot;HOLDING&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DR&quot;,
+            &quot;rendida&quot;: &quot;FG&quot;,
+            &quot;doc_financiero&quot;: &quot;1800491547&quot;,
+            &quot;cia_seg_sap&quot;: &quot;0.00&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;S&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2019-10-01 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20191130&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: null,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: &quot;Contab. Refacturaci&Atilde;&fnof;&Acirc;&sup3;n                                                                              &quot;,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: &quot;S&quot;,
+            &quot;motivo_bloqueo&quot;: &quot;Por Refacturaci&Atilde;&fnof;&Acirc;&sup3;n&quot;,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1728873&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1728873&quot;,
+            &quot;observacion_adicional&quot;: null,
+            &quot;dias_ven&quot;: 1190,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Vencido&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Factura Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;8478921&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 8478922,
+            &quot;equipo&quot;: 516,
+            &quot;vendedor&quot;: &quot;PRIOSECO&quot;,
+            &quot;negocio_eerr&quot;: &quot;DIMERC CORP&quot;,
+            &quot;rutcli&quot;: &quot;76568660&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;EASY RETAIL S.A. .-&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;30 DIAS&quot;,
+            &quot;codven&quot;: 12498287,
+            &quot;fecemi&quot;: &quot;2019-10-01 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2019-10-31 00:00:00&quot;,
+            &quot;totgen&quot;: 149865,
+            &quot;totsal&quot;: 149865,
+            &quot;dias_calc&quot;: 30,
+            &quot;dias&quot;: 30,
+            &quot;cobrador&quot;: &quot;FECARRASCO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;1&quot;,
+            &quot;clasifica&quot;: &quot;HOLDING&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DR&quot;,
+            &quot;rendida&quot;: &quot;FG&quot;,
+            &quot;doc_financiero&quot;: &quot;1800491548&quot;,
+            &quot;cia_seg_sap&quot;: &quot;0.00&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;S&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2019-10-01 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20191130&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: null,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: &quot;Contab. Refacturaci&Atilde;&fnof;&Acirc;&sup3;n                                                                              &quot;,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: &quot;S&quot;,
+            &quot;motivo_bloqueo&quot;: &quot;Por Refacturaci&Atilde;&fnof;&Acirc;&sup3;n&quot;,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1728873&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1728873&quot;,
+            &quot;observacion_adicional&quot;: null,
+            &quot;dias_ven&quot;: 1190,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Vencido&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Factura Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;8478922&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 1902059,
+            &quot;equipo&quot;: 516,
+            &quot;vendedor&quot;: &quot;VVALENZUELA&quot;,
+            &quot;negocio_eerr&quot;: &quot;DIMERC CORP&quot;,
+            &quot;rutcli&quot;: &quot;81698900&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;90 DIAS&quot;,
+            &quot;codven&quot;: 10298980,
+            &quot;fecemi&quot;: &quot;2022-11-07 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2023-02-05 00:00:00&quot;,
+            &quot;totgen&quot;: -33320,
+            &quot;totsal&quot;: -33320,
+            &quot;dias_calc&quot;: 90,
+            &quot;dias&quot;: 90,
+            &quot;cobrador&quot;: &quot;FECARRASCO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;1&quot;,
+            &quot;clasifica&quot;: &quot;HOLDING&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DG&quot;,
+            &quot;rendida&quot;: &quot;S&quot;,
+            &quot;doc_financiero&quot;: &quot;1600032130&quot;,
+            &quot;cia_seg_sap&quot;: &quot;Nominado&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;H&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2022-11-07 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20221107&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: &quot;Z090&quot;,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: null,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1745241&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1745241&quot;,
+            &quot;observacion_adicional&quot;: &quot;0001745241&quot;,
+            &quot;dias_ven&quot;: -3,
+            &quot;provision&quot;: &quot;No&quot;,
+            &quot;rango_morosidad&quot;: &quot;a. x Vencer&quot;,
+            &quot;status&quot;: &quot;Abono&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Ncr Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;10229362&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 1744939,
+            &quot;equipo&quot;: 517,
+            &quot;vendedor&quot;: &quot;LIVASQUEZ&quot;,
+            &quot;negocio_eerr&quot;: &quot;DIMERC CORP&quot;,
+            &quot;rutcli&quot;: &quot;96722460&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;METROGAS S A&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;30 DIAS&quot;,
+            &quot;codven&quot;: 15723411,
+            &quot;fecemi&quot;: &quot;2019-04-16 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2019-04-16 00:00:00&quot;,
+            &quot;totgen&quot;: -79349,
+            &quot;totsal&quot;: -79349,
+            &quot;dias_calc&quot;: 0,
+            &quot;dias&quot;: 0,
+            &quot;cobrador&quot;: &quot;FECARRASCO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;1&quot;,
+            &quot;clasifica&quot;: &quot;HOLDING&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DG&quot;,
+            &quot;rendida&quot;: &quot;S&quot;,
+            &quot;doc_financiero&quot;: &quot;1600014705&quot;,
+            &quot;cia_seg_sap&quot;: &quot;0.00&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;H&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2019-04-17 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20190516&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: null,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: null,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;3062829&quot;,
+            &quot;id_sap_cencos&quot;: &quot;3062829&quot;,
+            &quot;observacion_adicional&quot;: null,
+            &quot;dias_ven&quot;: 1388,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Abono&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Ncr Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;8251748&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 1778882,
+            &quot;equipo&quot;: 516,
+            &quot;vendedor&quot;: &quot;PRIOSECO&quot;,
+            &quot;negocio_eerr&quot;: &quot;DIMERC CORP&quot;,
+            &quot;rutcli&quot;: &quot;81201000&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;CENCOSUD RETAIL S.A.&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;30 DIAS&quot;,
+            &quot;codven&quot;: 12498287,
+            &quot;fecemi&quot;: &quot;2019-11-18 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2020-01-17 00:00:00&quot;,
+            &quot;totgen&quot;: -2827,
+            &quot;totsal&quot;: -2827,
+            &quot;dias_calc&quot;: 60,
+            &quot;dias&quot;: 60,
+            &quot;cobrador&quot;: &quot;FECARRASCO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;1&quot;,
+            &quot;clasifica&quot;: &quot;HOLDING&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DG&quot;,
+            &quot;rendida&quot;: &quot;FG&quot;,
+            &quot;doc_financiero&quot;: &quot;1600049781&quot;,
+            &quot;cia_seg_sap&quot;: &quot;Nominado&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;H&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2019-11-18 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20191118&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: &quot;Z060&quot;,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: null,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1745151&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1745151&quot;,
+            &quot;observacion_adicional&quot;: &quot;0001745151&quot;,
+            &quot;dias_ven&quot;: 1112,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Abono&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Ncr Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;8472828&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 1730559,
+            &quot;equipo&quot;: 509,
+            &quot;vendedor&quot;: &quot;JMUNOZG&quot;,
+            &quot;negocio_eerr&quot;: &quot;PYME&quot;,
+            &quot;rutcli&quot;: &quot;76121140&quot;,
+            &quot;cencos&quot;: &quot;1&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;RADIADORES GOMEZ LTDA&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;30 DIAS&quot;,
+            &quot;codven&quot;: 9522552,
+            &quot;fecemi&quot;: &quot;2019-01-14 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2019-02-13 00:00:00&quot;,
+            &quot;totgen&quot;: -21408,
+            &quot;totsal&quot;: -21408,
+            &quot;dias_calc&quot;: 30,
+            &quot;dias&quot;: 30,
+            &quot;cobrador&quot;: &quot;VORREGO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;2&quot;,
+            &quot;clasifica&quot;: &quot;GRAN EMPRESA&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DG&quot;,
+            &quot;rendida&quot;: &quot;S&quot;,
+            &quot;doc_financiero&quot;: &quot;1600000049&quot;,
+            &quot;cia_seg_sap&quot;: &quot;Innominado&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;H&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2019-01-14 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20190114&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: &quot;Z030&quot;,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: null,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1094832&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1094832&quot;,
+            &quot;observacion_adicional&quot;: &quot;0001094832&quot;,
+            &quot;dias_ven&quot;: 1450,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Abono&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Ncr Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;8127610&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 1786975,
+            &quot;equipo&quot;: 502,
+            &quot;vendedor&quot;: &quot;IVARGAS&quot;,
+            &quot;negocio_eerr&quot;: &quot;PYME&quot;,
+            &quot;rutcli&quot;: &quot;87591800&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;SOC COMERCIALIZADORA Y DISTRIB DE PROD MEDICOS LTDA&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;30 DIAS&quot;,
+            &quot;codven&quot;: 7368367,
+            &quot;fecemi&quot;: &quot;2020-01-07 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2020-02-06 00:00:00&quot;,
+            &quot;totgen&quot;: -1178,
+            &quot;totsal&quot;: -1178,
+            &quot;dias_calc&quot;: 30,
+            &quot;dias&quot;: 30,
+            &quot;cobrador&quot;: &quot;GVARGAS&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;2&quot;,
+            &quot;clasifica&quot;: &quot;PYME PEQUE&iuml;&iquest;&frac12;A&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DG&quot;,
+            &quot;rendida&quot;: &quot;S&quot;,
+            &quot;doc_financiero&quot;: &quot;1600000623&quot;,
+            &quot;cia_seg_sap&quot;: &quot;Innominado&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;H&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2020-01-07 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20200107&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: &quot;Z030&quot;,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: null,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1330929&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1330929&quot;,
+            &quot;observacion_adicional&quot;: &quot;0001330929&quot;,
+            &quot;dias_ven&quot;: 1092,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Abono&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Ncr Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;8824609&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 1812008,
+            &quot;equipo&quot;: 509,
+            &quot;vendedor&quot;: &quot;PAVILESD&quot;,
+            &quot;negocio_eerr&quot;: &quot;PYME&quot;,
+            &quot;rutcli&quot;: &quot;84078800&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;IMPORTADORA INDRA S A&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;30 DIAS&quot;,
+            &quot;codven&quot;: 9974708,
+            &quot;fecemi&quot;: &quot;2020-07-23 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2020-08-22 00:00:00&quot;,
+            &quot;totgen&quot;: -1178,
+            &quot;totsal&quot;: -1178,
+            &quot;dias_calc&quot;: 30,
+            &quot;dias&quot;: 30,
+            &quot;cobrador&quot;: &quot;KAGONZALEZ&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;2&quot;,
+            &quot;clasifica&quot;: &quot;GRAN EMPRESA&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DG&quot;,
+            &quot;rendida&quot;: &quot;S&quot;,
+            &quot;doc_financiero&quot;: &quot;1600026612&quot;,
+            &quot;cia_seg_sap&quot;: &quot;Innominado&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;H&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2020-07-23 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20200723&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: &quot;Z030&quot;,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: null,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1745586&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1745586&quot;,
+            &quot;observacion_adicional&quot;: &quot;0001745586&quot;,
+            &quot;dias_ven&quot;: 894,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Abono&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Ncr Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;8938811&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 1816647,
+            &quot;equipo&quot;: 502,
+            &quot;vendedor&quot;: &quot;PABRAVO&quot;,
+            &quot;negocio_eerr&quot;: &quot;PYME&quot;,
+            &quot;rutcli&quot;: &quot;78001160&quot;,
+            &quot;cencos&quot;: &quot;0&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;LATCAM PAGOS INTERNACIONALES S.A.&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;30 DIAS&quot;,
+            &quot;codven&quot;: 7542763,
+            &quot;fecemi&quot;: &quot;2020-09-02 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2020-09-02 00:00:00&quot;,
+            &quot;totgen&quot;: -1178,
+            &quot;totsal&quot;: -1178,
+            &quot;dias_calc&quot;: 0,
+            &quot;dias&quot;: 0,
+            &quot;cobrador&quot;: &quot;PMONTERO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;2&quot;,
+            &quot;clasifica&quot;: &quot;PYME PEQUE&iuml;&iquest;&frac12;A&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DG&quot;,
+            &quot;rendida&quot;: &quot;S&quot;,
+            &quot;doc_financiero&quot;: &quot;1600031377&quot;,
+            &quot;cia_seg_sap&quot;: &quot;Innominado&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;H&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2020-09-02 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;00000000&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: null,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: null,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1139493&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1139493&quot;,
+            &quot;observacion_adicional&quot;: &quot;0001139493&quot;,
+            &quot;dias_ven&quot;: 883,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Abono&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Ncr Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;9319798&quot;
+        },
+        {
+            &quot;fecha_proceso&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;numfac&quot;: 1826945,
+            &quot;equipo&quot;: 506,
+            &quot;vendedor&quot;: &quot;FPINTO&quot;,
+            &quot;negocio_eerr&quot;: &quot;GOBIERNO&quot;,
+            &quot;rutcli&quot;: &quot;60910000&quot;,
+            &quot;cencos&quot;: &quot;3320&quot;,
+            &quot;codemp&quot;: 3,
+            &quot;razons&quot;: &quot;UNIVERSIDAD DE CHILE&quot;,
+            &quot;estado&quot;: &quot;ACTIVO&quot;,
+            &quot;forma_pago&quot;: &quot;FACTURA&quot;,
+            &quot;plazo_pago&quot;: &quot;30 DIAS&quot;,
+            &quot;codven&quot;: 16621873,
+            &quot;fecemi&quot;: &quot;2020-10-21 00:00:00&quot;,
+            &quot;fecven&quot;: &quot;2020-11-20 00:00:00&quot;,
+            &quot;totgen&quot;: -21408,
+            &quot;totsal&quot;: -21408,
+            &quot;dias_calc&quot;: 30,
+            &quot;dias&quot;: 30,
+            &quot;cobrador&quot;: &quot;BPULIDO&quot;,
+            &quot;asegurado&quot;: &quot;1&quot;,
+            &quot;ciaseg&quot;: &quot;1&quot;,
+            &quot;clasifica&quot;: &quot;GOBIERNO&quot;,
+            &quot;codestado&quot;: 1,
+            &quot;clase&quot;: &quot;DG&quot;,
+            &quot;rendida&quot;: &quot;S&quot;,
+            &quot;doc_financiero&quot;: &quot;1600036611&quot;,
+            &quot;cia_seg_sap&quot;: &quot;Nominado&quot;,
+            &quot;viapag&quot;: null,
+            &quot;debe_haber&quot;: &quot;H&quot;,
+            &quot;cme&quot;: null,
+            &quot;asignacion&quot;: null,
+            &quot;ctacontable&quot;: &quot;1104011001&quot;,
+            &quot;feccontable&quot;: &quot;2020-10-21 00:00:00&quot;,
+            &quot;fecha_base&quot;: &quot;20201021&quot;,
+            &quot;moneda&quot;: &quot;CLP&quot;,
+            &quot;plapag&quot;: &quot;Z030&quot;,
+            &quot;fecha_reg&quot;: &quot;2023-02-02 00:00:00&quot;,
+            &quot;archivo&quot;: &quot;BSICL_BSID_20230202040010.dat&quot;,
+            &quot;texto_pos&quot;: null,
+            &quot;fecha_compensacion&quot;: &quot;00000000&quot;,
+            &quot;docto_compensacion&quot;: null,
+            &quot;bloqueo_gestion&quot;: null,
+            &quot;motivo_bloqueo&quot;: null,
+            &quot;cod_sociedad&quot;: &quot;2000&quot;,
+            &quot;id_sap_cliente&quot;: &quot;1716717&quot;,
+            &quot;id_sap_cencos&quot;: &quot;1716717&quot;,
+            &quot;observacion_adicional&quot;: &quot;0001716717&quot;,
+            &quot;dias_ven&quot;: 804,
+            &quot;provision&quot;: &quot;Si&quot;,
+            &quot;rango_morosidad&quot;: &quot;h. m&Atilde;&iexcl;s de 180&quot;,
+            &quot;status&quot;: &quot;Abono&quot;,
+            &quot;considerar&quot;: &quot;Si&quot;,
+            &quot;documento&quot;: &quot;Ncr Sap&quot;,
+            &quot;factura_asociada&quot;: &quot;9408185&quot;
+        }
+    ],
+    &quot;first_page_url&quot;: &quot;http://localhost/v1/cobranzas?page=1&quot;,
+    &quot;from&quot;: 1,
+    &quot;last_page&quot;: 3509,
+    &quot;last_page_url&quot;: &quot;http://localhost/v1/cobranzas?page=3509&quot;,
+    &quot;links&quot;: [
+        {
+            &quot;url&quot;: null,
+            &quot;label&quot;: &quot;pagination.previous&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=1&quot;,
+            &quot;label&quot;: &quot;1&quot;,
+            &quot;active&quot;: true
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=2&quot;,
+            &quot;label&quot;: &quot;2&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=3&quot;,
+            &quot;label&quot;: &quot;3&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=4&quot;,
+            &quot;label&quot;: &quot;4&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=5&quot;,
+            &quot;label&quot;: &quot;5&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=6&quot;,
+            &quot;label&quot;: &quot;6&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=7&quot;,
+            &quot;label&quot;: &quot;7&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=8&quot;,
+            &quot;label&quot;: &quot;8&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=9&quot;,
+            &quot;label&quot;: &quot;9&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=10&quot;,
+            &quot;label&quot;: &quot;10&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: null,
+            &quot;label&quot;: &quot;...&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=3508&quot;,
+            &quot;label&quot;: &quot;3508&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=3509&quot;,
+            &quot;label&quot;: &quot;3509&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http://localhost/v1/cobranzas?page=2&quot;,
+            &quot;label&quot;: &quot;pagination.next&quot;,
+            &quot;active&quot;: false
+        }
+    ],
+    &quot;next_page_url&quot;: &quot;http://localhost/v1/cobranzas?page=2&quot;,
+    &quot;path&quot;: &quot;http://localhost/v1/cobranzas&quot;,
+    &quot;per_page&quot;: 15,
+    &quot;prev_page_url&quot;: null,
+    &quot;to&quot;: 15,
+    &quot;total&quot;: 52634
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETv1-cobranzas" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETv1-cobranzas"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETv1-cobranzas" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETv1-cobranzas" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETv1-cobranzas"></code></pre>
+</span>
+<form id="form-GETv1-cobranzas" data-method="GET"
+      data-path="v1/cobranzas"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETv1-cobranzas', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETv1-cobranzas"
+                    onclick="tryItOut('GETv1-cobranzas');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETv1-cobranzas"
+                    onclick="cancelTryOut('GETv1-cobranzas');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETv1-cobranzas" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>v1/cobranzas</code></b>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>cliente</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="cliente"                data-endpoint="GETv1-cobranzas"
+               value=""
+               data-component="query">
+    <br>
+<p>campo para filtrar por rut.</p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>equipo</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="equipo"                data-endpoint="GETv1-cobranzas"
+               value=""
+               data-component="query">
+    <br>
+<p>campo para filtrar por equipo del vendedor.</p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>vendedor</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="vendedor"                data-endpoint="GETv1-cobranzas"
+               value=""
+               data-component="query">
+    <br>
+<p>campo para filtrar por nombre del vendedor.</p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>cobrador</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="cobrador"                data-endpoint="GETv1-cobranzas"
+               value=""
+               data-component="query">
+    <br>
+<p>campo para filtrar por nombre del cobrador.</p>
+            </div>
+                </form>
+
+                <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-GETv1-healthcheck">Healthcheck</h2>
+
+<p>
+</p>
+
+<p>Check that the service is up. If everything is okay, you'll get a 200 OK response.</p>
+<p>Otherwise, the request will fail with a 400 error, and a response listing the failed services.</p>
+
+<span id="example-requests-GETv1-healthcheck">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/v1/healthcheck"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/v1/healthcheck"
+);
+
+fetch(url, {
+    method: "GET",
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETv1-healthcheck">
+            <blockquote>
+            <p>Example response (400, Service is unhealthy):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;down&quot;,
+    &quot;services&quot;: {
+        &quot;database&quot;: &quot;up&quot;,
+        &quot;redis&quot;: &quot;down&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;up&quot;,
+    &quot;services&quot;: {
+        &quot;database&quot;: &quot;up&quot;,
+        &quot;redis&quot;: &quot;up&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETv1-healthcheck" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETv1-healthcheck"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETv1-healthcheck" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETv1-healthcheck" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETv1-healthcheck"></code></pre>
+</span>
+<form id="form-GETv1-healthcheck" data-method="GET"
+      data-path="v1/healthcheck"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETv1-healthcheck', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETv1-healthcheck"
+                    onclick="tryItOut('GETv1-healthcheck');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETv1-healthcheck"
+                    onclick="cancelTryOut('GETv1-healthcheck');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETv1-healthcheck" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>v1/healthcheck</code></b>
+        </p>
+                    </form>
+
+    <h3>Response</h3>
+    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
+    <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+<br>
+<p>The status of this API (<code>up</code> or <code>down</code>).</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>services</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+<br>
+<p>Map of each downstream service and their status (<code>up</code> or <code>down</code>).</p>
+        </div>
+                
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>
