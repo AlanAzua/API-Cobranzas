@@ -9,49 +9,49 @@ servers:
 paths:
   /v1/cobranzas:
     get:
-      summary: "Esta API tiene como finalidad mostrar la información de la base de datos, filtrada por 4 campos distintos, los cuales son:\n cliente, equipo, vendedor y cobrador. Estos filtros harán que se facilite la visualización y busqueda de estos datos."
-      operationId: estaAPITieneComoFinalidadMostrarLaInformacinDeLaBaseDeDatosFiltradaPor4CamposDistintosLosCualesSonClienteEquipoVendedorYCobradorEstosFiltrosHarnQueSeFaciliteLaVisualizacinYBusquedaDeEstosDatos
+      summary: "Esta API tiene como finalidad mostrar la información de las cobranzas realizadas, puede ser filtrada por 4 campos distintos, los cuales son:\n cliente, equipo, vendedor y cobrador. Estos filtros harán que se facilite la visualización y busqueda de estos datos."
+      operationId: estaAPITieneComoFinalidadMostrarLaInformacinDeLasCobranzasRealizadasPuedeSerFiltradaPor4CamposDistintosLosCualesSonClienteEquipoVendedorYCobradorEstosFiltrosHarnQueSeFaciliteLaVisualizacinYBusquedaDeEstosDatos
       description: ''
       parameters:
         -
           in: query
           name: cliente
-          description: 'campo para filtrar por rut.'
+          description: 'campo para filtrar por rut. Ejemplo: 81698900'
           example: null
           required: false
           schema:
             type: string
-            description: 'campo para filtrar por rut.'
+            description: 'campo para filtrar por rut. Ejemplo: 81698900'
             example: null
         -
           in: query
           name: equipo
-          description: 'campo para filtrar por equipo del vendedor.'
+          description: 'campo para filtrar por equipo del vendedor. Ejemplo: 509'
           example: null
           required: false
           schema:
             type: integer
-            description: 'campo para filtrar por equipo del vendedor.'
+            description: 'campo para filtrar por equipo del vendedor. Ejemplo: 509'
             example: null
         -
           in: query
           name: vendedor
-          description: 'campo para filtrar por nombre del vendedor.'
+          description: 'campo para filtrar por nombre del vendedor. Ejemplo: VVALENZUELA'
           example: null
           required: false
           schema:
             type: string
-            description: 'campo para filtrar por nombre del vendedor.'
+            description: 'campo para filtrar por nombre del vendedor. Ejemplo: VVALENZUELA'
             example: null
         -
           in: query
           name: cobrador
-          description: 'campo para filtrar por nombre del cobrador.'
+          description: 'campo para filtrar por nombre del cobrador. Ejemplo: FECARRASCO'
           example: null
           required: false
           schema:
             type: string
-            description: 'campo para filtrar por nombre del cobrador.'
+            description: 'campo para filtrar por nombre del cobrador. Ejemplo: FECARRASCO'
             example: null
       responses:
         200:
@@ -64,63 +64,455 @@ paths:
                   current_page: 1
                   data:
                     -
-                      fecha_proceso: '2023-02-02 00:00:00'
-                      numfac: 1899122
-                      equipo: 516
-                      vendedor: VVALENZUELA
-                      negocio_eerr: 'DIMERC CORP'
-                      rutcli: '81698900'
+                      fecha_proceso: '2023-02-28 00:00:00'
+                      numfac: 10492272
+                      equipo: 502
+                      vendedor: COJEDA
+                      negocio_eerr: PYME
+                      rutcli: '96858100'
                       cencos: '0'
                       codemp: 3
-                      razons: 'PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE'
+                      razons: 'INVERSIONES BUTAMALAL S A'
                       estado: ACTIVO
                       forma_pago: FACTURA
-                      plazo_pago: '90 DIAS'
-                      codven: 10298980
-                      fecemi: '2022-09-30 00:00:00'
-                      fecven: '2022-12-29 00:00:00'
-                      totgen: -176287
-                      totsal: -176287
-                      dias_calc: 90
-                      dias: 90
-                      cobrador: FECARRASCO
+                      plazo_pago: '30 DIAS'
+                      codven: 12971585
+                      fecemi: '2023-02-21 00:00:00'
+                      fecven: '2023-03-23 00:00:00'
+                      totgen: 353113
+                      totsal: 353113
+                      dias_calc: 30
+                      dias: 30
+                      cobrador: PMONTERO
                       asegurado: '1'
-                      ciaseg: '1'
-                      clasifica: HOLDING
+                      ciaseg: '2'
+                      clasifica: 'GRAN EMPRESA'
                       codestado: 1
-                      clase: DG
+                      clase: DR
                       rendida: S
-                      doc_financiero: '1600029129'
-                      cia_seg_sap: Nominado
-                      viapag: null
-                      debe_haber: H
+                      doc_financiero: '2500062602'
+                      cia_seg_sap: Innominado
+                      viapag: F
+                      debe_haber: S
                       cme: null
-                      asignacion: null
+                      asignacion: '1802311286'
                       ctacontable: '1104011001'
-                      feccontable: '2022-09-30 00:00:00'
-                      fecha_base: '20220930'
+                      feccontable: '2023-02-21 00:00:00'
+                      fecha_base: '20230221'
                       moneda: CLP
-                      plapag: Z090
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
+                      plapag: Z030
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
                       texto_pos: null
                       fecha_compensacion: '00000000'
                       docto_compensacion: null
                       bloqueo_gestion: null
                       motivo_bloqueo: null
                       cod_sociedad: '2000'
-                      id_sap_cliente: '1745241'
-                      id_sap_cencos: '1745241'
-                      observacion_adicional: '0001745241'
-                      dias_ven: 35
+                      id_sap_cliente: '1339975'
+                      id_sap_cencos: '1339975'
+                      observacion_adicional: '0001339975'
+                      dias_ven: -23
                       provision: 'No'
-                      rango_morosidad: 'c. 31-60'
-                      status: Abono
+                      rango_morosidad: 'a. x Vencer'
+                      status: Vigente
                       considerar: Si
-                      documento: 'Ncr Sap'
-                      factura_asociada: null
+                      documento: 'Factura Sap'
+                      factura_asociada: '10492272'
                     -
-                      fecha_proceso: '2023-02-02 00:00:00'
+                      fecha_proceso: '2023-02-28 00:00:00'
+                      numfac: 10440810
+                      equipo: 300
+                      vendedor: CMESTRE
+                      negocio_eerr: PYME
+                      rutcli: '96705150'
+                      cencos: '0'
+                      codemp: 3
+                      razons: 'ALTA TECNOLOGIA MEDICA S A (ATM)'
+                      estado: ACTIVO
+                      forma_pago: FACTURA
+                      plazo_pago: '30 DIAS'
+                      codven: 12657507
+                      fecemi: '2023-02-21 00:00:00'
+                      fecven: '2023-03-23 00:00:00'
+                      totgen: 168278
+                      totsal: 168278
+                      dias_calc: 30
+                      dias: 30
+                      cobrador: KAGONZALEZ
+                      asegurado: '1'
+                      ciaseg: '2'
+                      clasifica: 'GRAN EMPRESA'
+                      codestado: 1
+                      clase: DR
+                      rendida: S
+                      doc_financiero: '2500062603'
+                      cia_seg_sap: Innominado
+                      viapag: F
+                      debe_haber: S
+                      cme: null
+                      asignacion: '1802311287'
+                      ctacontable: '1104011001'
+                      feccontable: '2023-02-21 00:00:00'
+                      fecha_base: '20230221'
+                      moneda: CLP
+                      plapag: Z030
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
+                      texto_pos: null
+                      fecha_compensacion: '00000000'
+                      docto_compensacion: null
+                      bloqueo_gestion: null
+                      motivo_bloqueo: null
+                      cod_sociedad: '2000'
+                      id_sap_cliente: '1337431'
+                      id_sap_cencos: '7422676'
+                      observacion_adicional: '0007422676'
+                      dias_ven: -23
+                      provision: 'No'
+                      rango_morosidad: 'a. x Vencer'
+                      status: Vigente
+                      considerar: Si
+                      documento: 'Factura Sap'
+                      factura_asociada: '10440810'
+                    -
+                      fecha_proceso: '2023-02-28 00:00:00'
+                      numfac: 10492277
+                      equipo: 300
+                      vendedor: ACRODRIGUEZ
+                      negocio_eerr: 'GRAN EMPRESA'
+                      rutcli: '77479090'
+                      cencos: '0'
+                      codemp: 3
+                      razons: 'GESTION NOLLAGAM S.A'
+                      estado: ACTIVO
+                      forma_pago: FACTURA
+                      plazo_pago: '30 DIAS'
+                      codven: 8085103
+                      fecemi: '2023-02-21 00:00:00'
+                      fecven: '2023-03-23 00:00:00'
+                      totgen: 243938
+                      totsal: 243938
+                      dias_calc: 30
+                      dias: 30
+                      cobrador: CAMCACERES
+                      asegurado: '1'
+                      ciaseg: '2'
+                      clasifica: 'GRAN EMPRESA'
+                      codestado: 1
+                      clase: DR
+                      rendida: S
+                      doc_financiero: '2500062605'
+                      cia_seg_sap: Innominado
+                      viapag: F
+                      debe_haber: S
+                      cme: null
+                      asignacion: '1802311289'
+                      ctacontable: '1104011001'
+                      feccontable: '2023-02-21 00:00:00'
+                      fecha_base: '20230221'
+                      moneda: CLP
+                      plapag: Z030
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
+                      texto_pos: null
+                      fecha_compensacion: '00000000'
+                      docto_compensacion: null
+                      bloqueo_gestion: null
+                      motivo_bloqueo: null
+                      cod_sociedad: '2000'
+                      id_sap_cliente: '1130040'
+                      id_sap_cencos: '1130040'
+                      observacion_adicional: '0001130040'
+                      dias_ven: -23
+                      provision: 'No'
+                      rango_morosidad: 'a. x Vencer'
+                      status: Vigente
+                      considerar: Si
+                      documento: 'Factura Sap'
+                      factura_asociada: '10492277'
+                    -
+                      fecha_proceso: '2023-02-28 00:00:00'
+                      numfac: 10440829
+                      equipo: 502
+                      vendedor: MJIMENEZ
+                      negocio_eerr: PYME
+                      rutcli: '96657020'
+                      cencos: '0'
+                      codemp: 3
+                      razons: 'BEAUTE FRANCAISE S A'
+                      estado: ACTIVO
+                      forma_pago: FACTURA
+                      plazo_pago: '30 DIAS'
+                      codven: 9233260
+                      fecemi: '2023-02-21 00:00:00'
+                      fecven: '2023-03-23 00:00:00'
+                      totgen: 418602
+                      totsal: 418602
+                      dias_calc: 30
+                      dias: 30
+                      cobrador: VORREGO
+                      asegurado: '1'
+                      ciaseg: '2'
+                      clasifica: 'PYME MEDIANA'
+                      codestado: 1
+                      clase: DR
+                      rendida: S
+                      doc_financiero: '2500062606'
+                      cia_seg_sap: Innominado
+                      viapag: F
+                      debe_haber: S
+                      cme: null
+                      asignacion: '1802311290'
+                      ctacontable: '1104011001'
+                      feccontable: '2023-02-21 00:00:00'
+                      fecha_base: '20230221'
+                      moneda: CLP
+                      plapag: Z030
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
+                      texto_pos: null
+                      fecha_compensacion: '00000000'
+                      docto_compensacion: null
+                      bloqueo_gestion: null
+                      motivo_bloqueo: null
+                      cod_sociedad: '2000'
+                      id_sap_cliente: '1336669'
+                      id_sap_cencos: '1336669'
+                      observacion_adicional: '0001336669'
+                      dias_ven: -23
+                      provision: 'No'
+                      rango_morosidad: 'a. x Vencer'
+                      status: Vigente
+                      considerar: Si
+                      documento: 'Factura Sap'
+                      factura_asociada: '10440829'
+                    -
+                      fecha_proceso: '2023-02-28 00:00:00'
+                      numfac: 10492259
+                      equipo: 550
+                      vendedor: WEB550
+                      negocio_eerr: PYME
+                      rutcli: '65155358'
+                      cencos: '0'
+                      codemp: 3
+                      razons: 'CORPORACION EDUCACIONAL SAN MIGUEL DE LOS ANDES'
+                      estado: ACTIVO
+                      forma_pago: DEPOSITO
+                      plazo_pago: 'AL DIA'
+                      codven: 98989898
+                      fecemi: '2023-02-21 00:00:00'
+                      fecven: '2023-03-23 00:00:00'
+                      totgen: 285185
+                      totsal: 285185
+                      dias_calc: 30
+                      dias: 30
+                      cobrador: GVARGAS
+                      asegurado: '1'
+                      ciaseg: '2'
+                      clasifica: 'PYME PEQUEï¿½A'
+                      codestado: 1
+                      clase: DR
+                      rendida: S
+                      doc_financiero: '2500062607'
+                      cia_seg_sap: Innominado
+                      viapag: D
+                      debe_haber: S
+                      cme: null
+                      asignacion: '1802311291'
+                      ctacontable: '1104011001'
+                      feccontable: '2023-02-21 00:00:00'
+                      fecha_base: '20230221'
+                      moneda: CLP
+                      plapag: Z002
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
+                      texto_pos: null
+                      fecha_compensacion: '00000000'
+                      docto_compensacion: null
+                      bloqueo_gestion: null
+                      motivo_bloqueo: null
+                      cod_sociedad: '2000'
+                      id_sap_cliente: '1717251'
+                      id_sap_cencos: '1717251'
+                      observacion_adicional: '0001717251'
+                      dias_ven: -23
+                      provision: 'No'
+                      rango_morosidad: 'a. x Vencer'
+                      status: Vigente
+                      considerar: Si
+                      documento: 'Factura Sap'
+                      factura_asociada: '10492259'
+                    -
+                      fecha_proceso: '2023-02-28 00:00:00'
+                      numfac: 10492284
+                      equipo: 509
+                      vendedor: MAOSORIO
+                      negocio_eerr: PYME
+                      rutcli: '96778160'
+                      cencos: '0'
+                      codemp: 3
+                      razons: 'ECOPRENEUR CHILE S A'
+                      estado: ACTIVO
+                      forma_pago: FACTURA
+                      plazo_pago: '30 DIAS'
+                      codven: 25906018
+                      fecemi: '2023-02-21 00:00:00'
+                      fecven: '2023-03-23 00:00:00'
+                      totgen: 203827
+                      totsal: 203827
+                      dias_calc: 30
+                      dias: 30
+                      cobrador: PMONTERO
+                      asegurado: '1'
+                      ciaseg: '2'
+                      clasifica: 'GRAN EMPRESA'
+                      codestado: 1
+                      clase: DR
+                      rendida: S
+                      doc_financiero: '2500062608'
+                      cia_seg_sap: Innominado
+                      viapag: F
+                      debe_haber: S
+                      cme: null
+                      asignacion: '1802311292'
+                      ctacontable: '1104011001'
+                      feccontable: '2023-02-21 00:00:00'
+                      fecha_base: '20230221'
+                      moneda: CLP
+                      plapag: Z030
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
+                      texto_pos: null
+                      fecha_compensacion: '00000000'
+                      docto_compensacion: null
+                      bloqueo_gestion: null
+                      motivo_bloqueo: null
+                      cod_sociedad: '2000'
+                      id_sap_cliente: '1338424'
+                      id_sap_cencos: '1338424'
+                      observacion_adicional: '0001338424'
+                      dias_ven: -23
+                      provision: 'No'
+                      rango_morosidad: 'a. x Vencer'
+                      status: Vigente
+                      considerar: Si
+                      documento: 'Factura Sap'
+                      factura_asociada: '10492284'
+                    -
+                      fecha_proceso: '2023-02-28 00:00:00'
+                      numfac: 10440830
+                      equipo: 509
+                      vendedor: FDLBARRA
+                      negocio_eerr: PYME
+                      rutcli: '76091301'
+                      cencos: '0'
+                      codemp: 3
+                      razons: 'LABORATORIOS BIOPAS S.A'
+                      estado: ACTIVO
+                      forma_pago: FACTURA
+                      plazo_pago: '30 DIAS'
+                      codven: 7201778
+                      fecemi: '2023-02-21 00:00:00'
+                      fecven: '2023-03-23 00:00:00'
+                      totgen: 183201
+                      totsal: 183201
+                      dias_calc: 30
+                      dias: 30
+                      cobrador: KAGONZALEZ
+                      asegurado: '1'
+                      ciaseg: '2'
+                      clasifica: 'PYME PEQUEï¿½A'
+                      codestado: 1
+                      clase: DR
+                      rendida: S
+                      doc_financiero: '2500062609'
+                      cia_seg_sap: Innominado
+                      viapag: F
+                      debe_haber: S
+                      cme: null
+                      asignacion: '1802311293'
+                      ctacontable: '1104011001'
+                      feccontable: '2023-02-21 00:00:00'
+                      fecha_base: '20230221'
+                      moneda: CLP
+                      plapag: Z030
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
+                      texto_pos: null
+                      fecha_compensacion: '00000000'
+                      docto_compensacion: null
+                      bloqueo_gestion: null
+                      motivo_bloqueo: null
+                      cod_sociedad: '2000'
+                      id_sap_cliente: '1083372'
+                      id_sap_cencos: '1083372'
+                      observacion_adicional: '0001083372'
+                      dias_ven: -23
+                      provision: 'No'
+                      rango_morosidad: 'a. x Vencer'
+                      status: Vigente
+                      considerar: Si
+                      documento: 'Factura Sap'
+                      factura_asociada: '10440830'
+                    -
+                      fecha_proceso: '2023-02-28 00:00:00'
+                      numfac: 10492273
+                      equipo: 515
+                      vendedor: GIRIOS
+                      negocio_eerr: PYME
+                      rutcli: '96829360'
+                      cencos: '0'
+                      codemp: 3
+                      razons: 'SOAINT GESTION S.A.'
+                      estado: ACTIVO
+                      forma_pago: FACTURA
+                      plazo_pago: '30 DIAS'
+                      codven: 14616244
+                      fecemi: '2023-02-21 00:00:00'
+                      fecven: '2023-03-23 00:00:00'
+                      totgen: 118713
+                      totsal: 118713
+                      dias_calc: 30
+                      dias: 30
+                      cobrador: KAGONZALEZ
+                      asegurado: '1'
+                      ciaseg: '2'
+                      clasifica: 'PYME PEQUEï¿½A'
+                      codestado: 1
+                      clase: DR
+                      rendida: S
+                      doc_financiero: '2500062610'
+                      cia_seg_sap: Innominado
+                      viapag: F
+                      debe_haber: S
+                      cme: null
+                      asignacion: '1802311294'
+                      ctacontable: '1104011001'
+                      feccontable: '2023-02-21 00:00:00'
+                      fecha_base: '20230221'
+                      moneda: CLP
+                      plapag: Z030
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
+                      texto_pos: null
+                      fecha_compensacion: '00000000'
+                      docto_compensacion: null
+                      bloqueo_gestion: null
+                      motivo_bloqueo: null
+                      cod_sociedad: '2000'
+                      id_sap_cliente: '1747467'
+                      id_sap_cencos: '1747467'
+                      observacion_adicional: '0001747467'
+                      dias_ven: -23
+                      provision: 'No'
+                      rango_morosidad: 'a. x Vencer'
+                      status: Vigente
+                      considerar: Si
+                      documento: 'Factura Sap'
+                      factura_asociada: '10492273'
+                    -
+                      fecha_proceso: '2023-02-28 00:00:00'
                       numfac: 8416388
                       equipo: 516
                       vendedor: PRIOSECO
@@ -157,8 +549,8 @@ paths:
                       fecha_base: '20190617'
                       moneda: CLP
                       plapag: null
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
                       texto_pos: 'Contab. Factura                                                                                     '
                       fecha_compensacion: '00000000'
                       docto_compensacion: null
@@ -168,7 +560,7 @@ paths:
                       id_sap_cliente: '1745151'
                       id_sap_cencos: '1745151'
                       observacion_adicional: null
-                      dias_ven: 1356
+                      dias_ven: 1382
                       provision: Si
                       rango_morosidad: 'h. mÃ¡s de 180'
                       status: Vencido
@@ -176,63 +568,7 @@ paths:
                       documento: 'Factura Sap'
                       factura_asociada: '8416388'
                     -
-                      fecha_proceso: '2023-02-02 00:00:00'
-                      numfac: 8583988
-                      equipo: 516
-                      vendedor: VVALENZUELA
-                      negocio_eerr: 'DIMERC CORP'
-                      rutcli: '81698900'
-                      cencos: '0'
-                      codemp: 3
-                      razons: 'PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE'
-                      estado: ACTIVO
-                      forma_pago: FACTURA
-                      plazo_pago: '90 DIAS'
-                      codven: 10298980
-                      fecemi: '2019-08-07 00:00:00'
-                      fecven: '2019-09-06 00:00:00'
-                      totgen: 59912
-                      totsal: 59912
-                      dias_calc: 30
-                      dias: 30
-                      cobrador: FECARRASCO
-                      asegurado: '1'
-                      ciaseg: '1'
-                      clasifica: HOLDING
-                      codestado: 1
-                      clase: DR
-                      rendida: 'N'
-                      doc_financiero: '1800394474'
-                      cia_seg_sap: '0.00'
-                      viapag: null
-                      debe_haber: S
-                      cme: null
-                      asignacion: null
-                      ctacontable: '1104011001'
-                      feccontable: '2019-08-07 00:00:00'
-                      fecha_base: '20191105'
-                      moneda: CLP
-                      plapag: null
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
-                      texto_pos: 'Contab. RefacturaciÃƒÂ³n                                                                              '
-                      fecha_compensacion: '00000000'
-                      docto_compensacion: null
-                      bloqueo_gestion: null
-                      motivo_bloqueo: null
-                      cod_sociedad: '2000'
-                      id_sap_cliente: '1745241'
-                      id_sap_cencos: '1745241'
-                      observacion_adicional: null
-                      dias_ven: 1245
-                      provision: Si
-                      rango_morosidad: 'h. mÃ¡s de 180'
-                      status: Vencido
-                      considerar: Si
-                      documento: 'Factura Sap'
-                      factura_asociada: '8583988'
-                    -
-                      fecha_proceso: '2023-02-02 00:00:00'
+                      fecha_proceso: '2023-02-28 00:00:00'
                       numfac: 1747177
                       equipo: 516
                       vendedor: VVALENZUELA
@@ -269,8 +605,8 @@ paths:
                       fecha_base: '20190630'
                       moneda: CLP
                       plapag: null
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
                       texto_pos: 'Contab NC Bloq                                                                                      '
                       fecha_compensacion: '00000000'
                       docto_compensacion: null
@@ -280,7 +616,7 @@ paths:
                       id_sap_cliente: '1745241'
                       id_sap_cencos: '1745241'
                       observacion_adicional: null
-                      dias_ven: 1372
+                      dias_ven: 1398
                       provision: Si
                       rango_morosidad: 'h. mÃ¡s de 180'
                       status: Abono
@@ -288,7 +624,7 @@ paths:
                       documento: 'Ncr Sap'
                       factura_asociada: '8206311'
                     -
-                      fecha_proceso: '2023-02-02 00:00:00'
+                      fecha_proceso: '2023-02-28 00:00:00'
                       numfac: 8481269
                       equipo: 516
                       vendedor: PRIOSECO
@@ -325,18 +661,18 @@ paths:
                       fecha_base: '20190913'
                       moneda: CLP
                       plapag: null
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
                       texto_pos: 'Contab. Factura Refac                                                                               '
                       fecha_compensacion: '00000000'
                       docto_compensacion: null
-                      bloqueo_gestion: S
-                      motivo_bloqueo: 'Por RefacturaciÃƒÂ³n'
+                      bloqueo_gestion: null
+                      motivo_bloqueo: null
                       cod_sociedad: '2000'
                       id_sap_cliente: '1728873'
                       id_sap_cencos: '1728873'
                       observacion_adicional: null
-                      dias_ven: 1268
+                      dias_ven: 1294
                       provision: Si
                       rango_morosidad: 'h. mÃ¡s de 180'
                       status: Vencido
@@ -344,7 +680,7 @@ paths:
                       documento: 'Factura Sap'
                       factura_asociada: '8481269'
                     -
-                      fecha_proceso: '2023-02-02 00:00:00'
+                      fecha_proceso: '2023-02-28 00:00:00'
                       numfac: 8478921
                       equipo: 516
                       vendedor: PRIOSECO
@@ -381,18 +717,18 @@ paths:
                       fecha_base: '20191130'
                       moneda: CLP
                       plapag: null
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
                       texto_pos: 'Contab. RefacturaciÃƒÂ³n                                                                              '
                       fecha_compensacion: '00000000'
                       docto_compensacion: null
-                      bloqueo_gestion: S
-                      motivo_bloqueo: 'Por RefacturaciÃƒÂ³n'
+                      bloqueo_gestion: null
+                      motivo_bloqueo: null
                       cod_sociedad: '2000'
                       id_sap_cliente: '1728873'
                       id_sap_cencos: '1728873'
                       observacion_adicional: null
-                      dias_ven: 1190
+                      dias_ven: 1216
                       provision: Si
                       rango_morosidad: 'h. mÃ¡s de 180'
                       status: Vencido
@@ -400,7 +736,7 @@ paths:
                       documento: 'Factura Sap'
                       factura_asociada: '8478921'
                     -
-                      fecha_proceso: '2023-02-02 00:00:00'
+                      fecha_proceso: '2023-02-28 00:00:00'
                       numfac: 8478922
                       equipo: 516
                       vendedor: PRIOSECO
@@ -437,18 +773,18 @@ paths:
                       fecha_base: '20191130'
                       moneda: CLP
                       plapag: null
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
                       texto_pos: 'Contab. RefacturaciÃƒÂ³n                                                                              '
                       fecha_compensacion: '00000000'
                       docto_compensacion: null
-                      bloqueo_gestion: S
-                      motivo_bloqueo: 'Por RefacturaciÃƒÂ³n'
+                      bloqueo_gestion: null
+                      motivo_bloqueo: null
                       cod_sociedad: '2000'
                       id_sap_cliente: '1728873'
                       id_sap_cencos: '1728873'
                       observacion_adicional: null
-                      dias_ven: 1190
+                      dias_ven: 1216
                       provision: Si
                       rango_morosidad: 'h. mÃ¡s de 180'
                       status: Vencido
@@ -456,63 +792,7 @@ paths:
                       documento: 'Factura Sap'
                       factura_asociada: '8478922'
                     -
-                      fecha_proceso: '2023-02-02 00:00:00'
-                      numfac: 1902059
-                      equipo: 516
-                      vendedor: VVALENZUELA
-                      negocio_eerr: 'DIMERC CORP'
-                      rutcli: '81698900'
-                      cencos: '0'
-                      codemp: 3
-                      razons: 'PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE'
-                      estado: ACTIVO
-                      forma_pago: FACTURA
-                      plazo_pago: '90 DIAS'
-                      codven: 10298980
-                      fecemi: '2022-11-07 00:00:00'
-                      fecven: '2023-02-05 00:00:00'
-                      totgen: -33320
-                      totsal: -33320
-                      dias_calc: 90
-                      dias: 90
-                      cobrador: FECARRASCO
-                      asegurado: '1'
-                      ciaseg: '1'
-                      clasifica: HOLDING
-                      codestado: 1
-                      clase: DG
-                      rendida: S
-                      doc_financiero: '1600032130'
-                      cia_seg_sap: Nominado
-                      viapag: null
-                      debe_haber: H
-                      cme: null
-                      asignacion: null
-                      ctacontable: '1104011001'
-                      feccontable: '2022-11-07 00:00:00'
-                      fecha_base: '20221107'
-                      moneda: CLP
-                      plapag: Z090
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
-                      texto_pos: null
-                      fecha_compensacion: '00000000'
-                      docto_compensacion: null
-                      bloqueo_gestion: null
-                      motivo_bloqueo: null
-                      cod_sociedad: '2000'
-                      id_sap_cliente: '1745241'
-                      id_sap_cencos: '1745241'
-                      observacion_adicional: '0001745241'
-                      dias_ven: -3
-                      provision: 'No'
-                      rango_morosidad: 'a. x Vencer'
-                      status: Abono
-                      considerar: Si
-                      documento: 'Ncr Sap'
-                      factura_asociada: '10229362'
-                    -
-                      fecha_proceso: '2023-02-02 00:00:00'
+                      fecha_proceso: '2023-02-28 00:00:00'
                       numfac: 1744939
                       equipo: 517
                       vendedor: LIVASQUEZ
@@ -549,8 +829,8 @@ paths:
                       fecha_base: '20190516'
                       moneda: CLP
                       plapag: null
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
                       texto_pos: null
                       fecha_compensacion: '00000000'
                       docto_compensacion: null
@@ -560,7 +840,7 @@ paths:
                       id_sap_cliente: '3062829'
                       id_sap_cencos: '3062829'
                       observacion_adicional: null
-                      dias_ven: 1388
+                      dias_ven: 1414
                       provision: Si
                       rango_morosidad: 'h. mÃ¡s de 180'
                       status: Abono
@@ -568,8 +848,8 @@ paths:
                       documento: 'Ncr Sap'
                       factura_asociada: '8251748'
                     -
-                      fecha_proceso: '2023-02-02 00:00:00'
-                      numfac: 1778882
+                      fecha_proceso: '2023-02-28 00:00:00'
+                      numfac: 1812268
                       equipo: 516
                       vendedor: PRIOSECO
                       negocio_eerr: 'DIMERC CORP'
@@ -581,10 +861,10 @@ paths:
                       forma_pago: FACTURA
                       plazo_pago: '30 DIAS'
                       codven: 12498287
-                      fecemi: '2019-11-18 00:00:00'
-                      fecven: '2020-01-17 00:00:00'
-                      totgen: -2827
-                      totsal: -2827
+                      fecemi: '2020-07-27 00:00:00'
+                      fecven: '2020-09-25 00:00:00'
+                      totgen: -1225
+                      totsal: -1225
                       dias_calc: 60
                       dias: 60
                       cobrador: FECARRASCO
@@ -593,20 +873,20 @@ paths:
                       clasifica: HOLDING
                       codestado: 1
                       clase: DG
-                      rendida: FG
-                      doc_financiero: '1600049781'
+                      rendida: S
+                      doc_financiero: '1600026887'
                       cia_seg_sap: Nominado
                       viapag: null
                       debe_haber: H
                       cme: null
                       asignacion: null
                       ctacontable: '1104011001'
-                      feccontable: '2019-11-18 00:00:00'
-                      fecha_base: '20191118'
+                      feccontable: '2020-07-27 00:00:00'
+                      fecha_base: '20200727'
                       moneda: CLP
                       plapag: Z060
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
+                      fecha_reg: '2023-02-28 00:00:00'
+                      archivo: BSICL_BSID_20230228040005.dat
                       texto_pos: null
                       fecha_compensacion: '00000000'
                       docto_compensacion: null
@@ -616,297 +896,17 @@ paths:
                       id_sap_cliente: '1745151'
                       id_sap_cencos: '1745151'
                       observacion_adicional: '0001745151'
-                      dias_ven: 1112
+                      dias_ven: 886
                       provision: Si
                       rango_morosidad: 'h. mÃ¡s de 180'
                       status: Abono
                       considerar: Si
                       documento: 'Ncr Sap'
-                      factura_asociada: '8472828'
-                    -
-                      fecha_proceso: '2023-02-02 00:00:00'
-                      numfac: 1730559
-                      equipo: 509
-                      vendedor: JMUNOZG
-                      negocio_eerr: PYME
-                      rutcli: '76121140'
-                      cencos: '1'
-                      codemp: 3
-                      razons: 'RADIADORES GOMEZ LTDA'
-                      estado: ACTIVO
-                      forma_pago: FACTURA
-                      plazo_pago: '30 DIAS'
-                      codven: 9522552
-                      fecemi: '2019-01-14 00:00:00'
-                      fecven: '2019-02-13 00:00:00'
-                      totgen: -21408
-                      totsal: -21408
-                      dias_calc: 30
-                      dias: 30
-                      cobrador: VORREGO
-                      asegurado: '1'
-                      ciaseg: '2'
-                      clasifica: 'GRAN EMPRESA'
-                      codestado: 1
-                      clase: DG
-                      rendida: S
-                      doc_financiero: '1600000049'
-                      cia_seg_sap: Innominado
-                      viapag: null
-                      debe_haber: H
-                      cme: null
-                      asignacion: null
-                      ctacontable: '1104011001'
-                      feccontable: '2019-01-14 00:00:00'
-                      fecha_base: '20190114'
-                      moneda: CLP
-                      plapag: Z030
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
-                      texto_pos: null
-                      fecha_compensacion: '00000000'
-                      docto_compensacion: null
-                      bloqueo_gestion: null
-                      motivo_bloqueo: null
-                      cod_sociedad: '2000'
-                      id_sap_cliente: '1094832'
-                      id_sap_cencos: '1094832'
-                      observacion_adicional: '0001094832'
-                      dias_ven: 1450
-                      provision: Si
-                      rango_morosidad: 'h. mÃ¡s de 180'
-                      status: Abono
-                      considerar: Si
-                      documento: 'Ncr Sap'
-                      factura_asociada: '8127610'
-                    -
-                      fecha_proceso: '2023-02-02 00:00:00'
-                      numfac: 1786975
-                      equipo: 502
-                      vendedor: IVARGAS
-                      negocio_eerr: PYME
-                      rutcli: '87591800'
-                      cencos: '0'
-                      codemp: 3
-                      razons: 'SOC COMERCIALIZADORA Y DISTRIB DE PROD MEDICOS LTDA'
-                      estado: ACTIVO
-                      forma_pago: FACTURA
-                      plazo_pago: '30 DIAS'
-                      codven: 7368367
-                      fecemi: '2020-01-07 00:00:00'
-                      fecven: '2020-02-06 00:00:00'
-                      totgen: -1178
-                      totsal: -1178
-                      dias_calc: 30
-                      dias: 30
-                      cobrador: GVARGAS
-                      asegurado: '1'
-                      ciaseg: '2'
-                      clasifica: 'PYME PEQUEï¿½A'
-                      codestado: 1
-                      clase: DG
-                      rendida: S
-                      doc_financiero: '1600000623'
-                      cia_seg_sap: Innominado
-                      viapag: null
-                      debe_haber: H
-                      cme: null
-                      asignacion: null
-                      ctacontable: '1104011001'
-                      feccontable: '2020-01-07 00:00:00'
-                      fecha_base: '20200107'
-                      moneda: CLP
-                      plapag: Z030
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
-                      texto_pos: null
-                      fecha_compensacion: '00000000'
-                      docto_compensacion: null
-                      bloqueo_gestion: null
-                      motivo_bloqueo: null
-                      cod_sociedad: '2000'
-                      id_sap_cliente: '1330929'
-                      id_sap_cencos: '1330929'
-                      observacion_adicional: '0001330929'
-                      dias_ven: 1092
-                      provision: Si
-                      rango_morosidad: 'h. mÃ¡s de 180'
-                      status: Abono
-                      considerar: Si
-                      documento: 'Ncr Sap'
-                      factura_asociada: '8824609'
-                    -
-                      fecha_proceso: '2023-02-02 00:00:00'
-                      numfac: 1812008
-                      equipo: 509
-                      vendedor: PAVILESD
-                      negocio_eerr: PYME
-                      rutcli: '84078800'
-                      cencos: '0'
-                      codemp: 3
-                      razons: 'IMPORTADORA INDRA S A'
-                      estado: ACTIVO
-                      forma_pago: FACTURA
-                      plazo_pago: '30 DIAS'
-                      codven: 9974708
-                      fecemi: '2020-07-23 00:00:00'
-                      fecven: '2020-08-22 00:00:00'
-                      totgen: -1178
-                      totsal: -1178
-                      dias_calc: 30
-                      dias: 30
-                      cobrador: KAGONZALEZ
-                      asegurado: '1'
-                      ciaseg: '2'
-                      clasifica: 'GRAN EMPRESA'
-                      codestado: 1
-                      clase: DG
-                      rendida: S
-                      doc_financiero: '1600026612'
-                      cia_seg_sap: Innominado
-                      viapag: null
-                      debe_haber: H
-                      cme: null
-                      asignacion: null
-                      ctacontable: '1104011001'
-                      feccontable: '2020-07-23 00:00:00'
-                      fecha_base: '20200723'
-                      moneda: CLP
-                      plapag: Z030
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
-                      texto_pos: null
-                      fecha_compensacion: '00000000'
-                      docto_compensacion: null
-                      bloqueo_gestion: null
-                      motivo_bloqueo: null
-                      cod_sociedad: '2000'
-                      id_sap_cliente: '1745586'
-                      id_sap_cencos: '1745586'
-                      observacion_adicional: '0001745586'
-                      dias_ven: 894
-                      provision: Si
-                      rango_morosidad: 'h. mÃ¡s de 180'
-                      status: Abono
-                      considerar: Si
-                      documento: 'Ncr Sap'
-                      factura_asociada: '8938811'
-                    -
-                      fecha_proceso: '2023-02-02 00:00:00'
-                      numfac: 1816647
-                      equipo: 502
-                      vendedor: PABRAVO
-                      negocio_eerr: PYME
-                      rutcli: '78001160'
-                      cencos: '0'
-                      codemp: 3
-                      razons: 'LATCAM PAGOS INTERNACIONALES S.A.'
-                      estado: ACTIVO
-                      forma_pago: FACTURA
-                      plazo_pago: '30 DIAS'
-                      codven: 7542763
-                      fecemi: '2020-09-02 00:00:00'
-                      fecven: '2020-09-02 00:00:00'
-                      totgen: -1178
-                      totsal: -1178
-                      dias_calc: 0
-                      dias: 0
-                      cobrador: PMONTERO
-                      asegurado: '1'
-                      ciaseg: '2'
-                      clasifica: 'PYME PEQUEï¿½A'
-                      codestado: 1
-                      clase: DG
-                      rendida: S
-                      doc_financiero: '1600031377'
-                      cia_seg_sap: Innominado
-                      viapag: null
-                      debe_haber: H
-                      cme: null
-                      asignacion: null
-                      ctacontable: '1104011001'
-                      feccontable: '2020-09-02 00:00:00'
-                      fecha_base: '00000000'
-                      moneda: CLP
-                      plapag: null
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
-                      texto_pos: null
-                      fecha_compensacion: '00000000'
-                      docto_compensacion: null
-                      bloqueo_gestion: null
-                      motivo_bloqueo: null
-                      cod_sociedad: '2000'
-                      id_sap_cliente: '1139493'
-                      id_sap_cencos: '1139493'
-                      observacion_adicional: '0001139493'
-                      dias_ven: 883
-                      provision: Si
-                      rango_morosidad: 'h. mÃ¡s de 180'
-                      status: Abono
-                      considerar: Si
-                      documento: 'Ncr Sap'
-                      factura_asociada: '9319798'
-                    -
-                      fecha_proceso: '2023-02-02 00:00:00'
-                      numfac: 1826945
-                      equipo: 506
-                      vendedor: FPINTO
-                      negocio_eerr: GOBIERNO
-                      rutcli: '60910000'
-                      cencos: '3320'
-                      codemp: 3
-                      razons: 'UNIVERSIDAD DE CHILE'
-                      estado: ACTIVO
-                      forma_pago: FACTURA
-                      plazo_pago: '30 DIAS'
-                      codven: 16621873
-                      fecemi: '2020-10-21 00:00:00'
-                      fecven: '2020-11-20 00:00:00'
-                      totgen: -21408
-                      totsal: -21408
-                      dias_calc: 30
-                      dias: 30
-                      cobrador: BPULIDO
-                      asegurado: '1'
-                      ciaseg: '1'
-                      clasifica: GOBIERNO
-                      codestado: 1
-                      clase: DG
-                      rendida: S
-                      doc_financiero: '1600036611'
-                      cia_seg_sap: Nominado
-                      viapag: null
-                      debe_haber: H
-                      cme: null
-                      asignacion: null
-                      ctacontable: '1104011001'
-                      feccontable: '2020-10-21 00:00:00'
-                      fecha_base: '20201021'
-                      moneda: CLP
-                      plapag: Z030
-                      fecha_reg: '2023-02-02 00:00:00'
-                      archivo: BSICL_BSID_20230202040010.dat
-                      texto_pos: null
-                      fecha_compensacion: '00000000'
-                      docto_compensacion: null
-                      bloqueo_gestion: null
-                      motivo_bloqueo: null
-                      cod_sociedad: '2000'
-                      id_sap_cliente: '1716717'
-                      id_sap_cencos: '1716717'
-                      observacion_adicional: '0001716717'
-                      dias_ven: 804
-                      provision: Si
-                      rango_morosidad: 'h. mÃ¡s de 180'
-                      status: Abono
-                      considerar: Si
-                      documento: 'Ncr Sap'
-                      factura_asociada: '9408185'
+                      factura_asociada: '9167464'
                   first_page_url: 'http://localhost/v1/cobranzas?page=1'
                   from: 1
-                  last_page: 3509
-                  last_page_url: 'http://localhost/v1/cobranzas?page=3509'
+                  last_page: 3250
+                  last_page_url: 'http://localhost/v1/cobranzas?page=3250'
                   links:
                     -
                       url: null
@@ -957,12 +957,12 @@ paths:
                       label: ...
                       active: false
                     -
-                      url: 'http://localhost/v1/cobranzas?page=3508'
-                      label: '3508'
+                      url: 'http://localhost/v1/cobranzas?page=3249'
+                      label: '3249'
                       active: false
                     -
-                      url: 'http://localhost/v1/cobranzas?page=3509'
-                      label: '3509'
+                      url: 'http://localhost/v1/cobranzas?page=3250'
+                      label: '3250'
                       active: false
                     -
                       url: 'http://localhost/v1/cobranzas?page=2'
@@ -973,7 +973,7 @@ paths:
                   per_page: 15
                   prev_page_url: null
                   to: 15
-                  total: 52634
+                  total: 48739
                 properties:
                   current_page:
                     type: integer
@@ -982,63 +982,455 @@ paths:
                     type: array
                     example:
                       -
-                        fecha_proceso: '2023-02-02 00:00:00'
-                        numfac: 1899122
-                        equipo: 516
-                        vendedor: VVALENZUELA
-                        negocio_eerr: 'DIMERC CORP'
-                        rutcli: '81698900'
+                        fecha_proceso: '2023-02-28 00:00:00'
+                        numfac: 10492272
+                        equipo: 502
+                        vendedor: COJEDA
+                        negocio_eerr: PYME
+                        rutcli: '96858100'
                         cencos: '0'
                         codemp: 3
-                        razons: 'PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE'
+                        razons: 'INVERSIONES BUTAMALAL S A'
                         estado: ACTIVO
                         forma_pago: FACTURA
-                        plazo_pago: '90 DIAS'
-                        codven: 10298980
-                        fecemi: '2022-09-30 00:00:00'
-                        fecven: '2022-12-29 00:00:00'
-                        totgen: -176287
-                        totsal: -176287
-                        dias_calc: 90
-                        dias: 90
-                        cobrador: FECARRASCO
+                        plazo_pago: '30 DIAS'
+                        codven: 12971585
+                        fecemi: '2023-02-21 00:00:00'
+                        fecven: '2023-03-23 00:00:00'
+                        totgen: 353113
+                        totsal: 353113
+                        dias_calc: 30
+                        dias: 30
+                        cobrador: PMONTERO
                         asegurado: '1'
-                        ciaseg: '1'
-                        clasifica: HOLDING
+                        ciaseg: '2'
+                        clasifica: 'GRAN EMPRESA'
                         codestado: 1
-                        clase: DG
+                        clase: DR
                         rendida: S
-                        doc_financiero: '1600029129'
-                        cia_seg_sap: Nominado
-                        viapag: null
-                        debe_haber: H
+                        doc_financiero: '2500062602'
+                        cia_seg_sap: Innominado
+                        viapag: F
+                        debe_haber: S
                         cme: null
-                        asignacion: null
+                        asignacion: '1802311286'
                         ctacontable: '1104011001'
-                        feccontable: '2022-09-30 00:00:00'
-                        fecha_base: '20220930'
+                        feccontable: '2023-02-21 00:00:00'
+                        fecha_base: '20230221'
                         moneda: CLP
-                        plapag: Z090
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
+                        plapag: Z030
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
                         texto_pos: null
                         fecha_compensacion: '00000000'
                         docto_compensacion: null
                         bloqueo_gestion: null
                         motivo_bloqueo: null
                         cod_sociedad: '2000'
-                        id_sap_cliente: '1745241'
-                        id_sap_cencos: '1745241'
-                        observacion_adicional: '0001745241'
-                        dias_ven: 35
+                        id_sap_cliente: '1339975'
+                        id_sap_cencos: '1339975'
+                        observacion_adicional: '0001339975'
+                        dias_ven: -23
                         provision: 'No'
-                        rango_morosidad: 'c. 31-60'
-                        status: Abono
+                        rango_morosidad: 'a. x Vencer'
+                        status: Vigente
                         considerar: Si
-                        documento: 'Ncr Sap'
-                        factura_asociada: null
+                        documento: 'Factura Sap'
+                        factura_asociada: '10492272'
                       -
-                        fecha_proceso: '2023-02-02 00:00:00'
+                        fecha_proceso: '2023-02-28 00:00:00'
+                        numfac: 10440810
+                        equipo: 300
+                        vendedor: CMESTRE
+                        negocio_eerr: PYME
+                        rutcli: '96705150'
+                        cencos: '0'
+                        codemp: 3
+                        razons: 'ALTA TECNOLOGIA MEDICA S A (ATM)'
+                        estado: ACTIVO
+                        forma_pago: FACTURA
+                        plazo_pago: '30 DIAS'
+                        codven: 12657507
+                        fecemi: '2023-02-21 00:00:00'
+                        fecven: '2023-03-23 00:00:00'
+                        totgen: 168278
+                        totsal: 168278
+                        dias_calc: 30
+                        dias: 30
+                        cobrador: KAGONZALEZ
+                        asegurado: '1'
+                        ciaseg: '2'
+                        clasifica: 'GRAN EMPRESA'
+                        codestado: 1
+                        clase: DR
+                        rendida: S
+                        doc_financiero: '2500062603'
+                        cia_seg_sap: Innominado
+                        viapag: F
+                        debe_haber: S
+                        cme: null
+                        asignacion: '1802311287'
+                        ctacontable: '1104011001'
+                        feccontable: '2023-02-21 00:00:00'
+                        fecha_base: '20230221'
+                        moneda: CLP
+                        plapag: Z030
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
+                        texto_pos: null
+                        fecha_compensacion: '00000000'
+                        docto_compensacion: null
+                        bloqueo_gestion: null
+                        motivo_bloqueo: null
+                        cod_sociedad: '2000'
+                        id_sap_cliente: '1337431'
+                        id_sap_cencos: '7422676'
+                        observacion_adicional: '0007422676'
+                        dias_ven: -23
+                        provision: 'No'
+                        rango_morosidad: 'a. x Vencer'
+                        status: Vigente
+                        considerar: Si
+                        documento: 'Factura Sap'
+                        factura_asociada: '10440810'
+                      -
+                        fecha_proceso: '2023-02-28 00:00:00'
+                        numfac: 10492277
+                        equipo: 300
+                        vendedor: ACRODRIGUEZ
+                        negocio_eerr: 'GRAN EMPRESA'
+                        rutcli: '77479090'
+                        cencos: '0'
+                        codemp: 3
+                        razons: 'GESTION NOLLAGAM S.A'
+                        estado: ACTIVO
+                        forma_pago: FACTURA
+                        plazo_pago: '30 DIAS'
+                        codven: 8085103
+                        fecemi: '2023-02-21 00:00:00'
+                        fecven: '2023-03-23 00:00:00'
+                        totgen: 243938
+                        totsal: 243938
+                        dias_calc: 30
+                        dias: 30
+                        cobrador: CAMCACERES
+                        asegurado: '1'
+                        ciaseg: '2'
+                        clasifica: 'GRAN EMPRESA'
+                        codestado: 1
+                        clase: DR
+                        rendida: S
+                        doc_financiero: '2500062605'
+                        cia_seg_sap: Innominado
+                        viapag: F
+                        debe_haber: S
+                        cme: null
+                        asignacion: '1802311289'
+                        ctacontable: '1104011001'
+                        feccontable: '2023-02-21 00:00:00'
+                        fecha_base: '20230221'
+                        moneda: CLP
+                        plapag: Z030
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
+                        texto_pos: null
+                        fecha_compensacion: '00000000'
+                        docto_compensacion: null
+                        bloqueo_gestion: null
+                        motivo_bloqueo: null
+                        cod_sociedad: '2000'
+                        id_sap_cliente: '1130040'
+                        id_sap_cencos: '1130040'
+                        observacion_adicional: '0001130040'
+                        dias_ven: -23
+                        provision: 'No'
+                        rango_morosidad: 'a. x Vencer'
+                        status: Vigente
+                        considerar: Si
+                        documento: 'Factura Sap'
+                        factura_asociada: '10492277'
+                      -
+                        fecha_proceso: '2023-02-28 00:00:00'
+                        numfac: 10440829
+                        equipo: 502
+                        vendedor: MJIMENEZ
+                        negocio_eerr: PYME
+                        rutcli: '96657020'
+                        cencos: '0'
+                        codemp: 3
+                        razons: 'BEAUTE FRANCAISE S A'
+                        estado: ACTIVO
+                        forma_pago: FACTURA
+                        plazo_pago: '30 DIAS'
+                        codven: 9233260
+                        fecemi: '2023-02-21 00:00:00'
+                        fecven: '2023-03-23 00:00:00'
+                        totgen: 418602
+                        totsal: 418602
+                        dias_calc: 30
+                        dias: 30
+                        cobrador: VORREGO
+                        asegurado: '1'
+                        ciaseg: '2'
+                        clasifica: 'PYME MEDIANA'
+                        codestado: 1
+                        clase: DR
+                        rendida: S
+                        doc_financiero: '2500062606'
+                        cia_seg_sap: Innominado
+                        viapag: F
+                        debe_haber: S
+                        cme: null
+                        asignacion: '1802311290'
+                        ctacontable: '1104011001'
+                        feccontable: '2023-02-21 00:00:00'
+                        fecha_base: '20230221'
+                        moneda: CLP
+                        plapag: Z030
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
+                        texto_pos: null
+                        fecha_compensacion: '00000000'
+                        docto_compensacion: null
+                        bloqueo_gestion: null
+                        motivo_bloqueo: null
+                        cod_sociedad: '2000'
+                        id_sap_cliente: '1336669'
+                        id_sap_cencos: '1336669'
+                        observacion_adicional: '0001336669'
+                        dias_ven: -23
+                        provision: 'No'
+                        rango_morosidad: 'a. x Vencer'
+                        status: Vigente
+                        considerar: Si
+                        documento: 'Factura Sap'
+                        factura_asociada: '10440829'
+                      -
+                        fecha_proceso: '2023-02-28 00:00:00'
+                        numfac: 10492259
+                        equipo: 550
+                        vendedor: WEB550
+                        negocio_eerr: PYME
+                        rutcli: '65155358'
+                        cencos: '0'
+                        codemp: 3
+                        razons: 'CORPORACION EDUCACIONAL SAN MIGUEL DE LOS ANDES'
+                        estado: ACTIVO
+                        forma_pago: DEPOSITO
+                        plazo_pago: 'AL DIA'
+                        codven: 98989898
+                        fecemi: '2023-02-21 00:00:00'
+                        fecven: '2023-03-23 00:00:00'
+                        totgen: 285185
+                        totsal: 285185
+                        dias_calc: 30
+                        dias: 30
+                        cobrador: GVARGAS
+                        asegurado: '1'
+                        ciaseg: '2'
+                        clasifica: 'PYME PEQUEï¿½A'
+                        codestado: 1
+                        clase: DR
+                        rendida: S
+                        doc_financiero: '2500062607'
+                        cia_seg_sap: Innominado
+                        viapag: D
+                        debe_haber: S
+                        cme: null
+                        asignacion: '1802311291'
+                        ctacontable: '1104011001'
+                        feccontable: '2023-02-21 00:00:00'
+                        fecha_base: '20230221'
+                        moneda: CLP
+                        plapag: Z002
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
+                        texto_pos: null
+                        fecha_compensacion: '00000000'
+                        docto_compensacion: null
+                        bloqueo_gestion: null
+                        motivo_bloqueo: null
+                        cod_sociedad: '2000'
+                        id_sap_cliente: '1717251'
+                        id_sap_cencos: '1717251'
+                        observacion_adicional: '0001717251'
+                        dias_ven: -23
+                        provision: 'No'
+                        rango_morosidad: 'a. x Vencer'
+                        status: Vigente
+                        considerar: Si
+                        documento: 'Factura Sap'
+                        factura_asociada: '10492259'
+                      -
+                        fecha_proceso: '2023-02-28 00:00:00'
+                        numfac: 10492284
+                        equipo: 509
+                        vendedor: MAOSORIO
+                        negocio_eerr: PYME
+                        rutcli: '96778160'
+                        cencos: '0'
+                        codemp: 3
+                        razons: 'ECOPRENEUR CHILE S A'
+                        estado: ACTIVO
+                        forma_pago: FACTURA
+                        plazo_pago: '30 DIAS'
+                        codven: 25906018
+                        fecemi: '2023-02-21 00:00:00'
+                        fecven: '2023-03-23 00:00:00'
+                        totgen: 203827
+                        totsal: 203827
+                        dias_calc: 30
+                        dias: 30
+                        cobrador: PMONTERO
+                        asegurado: '1'
+                        ciaseg: '2'
+                        clasifica: 'GRAN EMPRESA'
+                        codestado: 1
+                        clase: DR
+                        rendida: S
+                        doc_financiero: '2500062608'
+                        cia_seg_sap: Innominado
+                        viapag: F
+                        debe_haber: S
+                        cme: null
+                        asignacion: '1802311292'
+                        ctacontable: '1104011001'
+                        feccontable: '2023-02-21 00:00:00'
+                        fecha_base: '20230221'
+                        moneda: CLP
+                        plapag: Z030
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
+                        texto_pos: null
+                        fecha_compensacion: '00000000'
+                        docto_compensacion: null
+                        bloqueo_gestion: null
+                        motivo_bloqueo: null
+                        cod_sociedad: '2000'
+                        id_sap_cliente: '1338424'
+                        id_sap_cencos: '1338424'
+                        observacion_adicional: '0001338424'
+                        dias_ven: -23
+                        provision: 'No'
+                        rango_morosidad: 'a. x Vencer'
+                        status: Vigente
+                        considerar: Si
+                        documento: 'Factura Sap'
+                        factura_asociada: '10492284'
+                      -
+                        fecha_proceso: '2023-02-28 00:00:00'
+                        numfac: 10440830
+                        equipo: 509
+                        vendedor: FDLBARRA
+                        negocio_eerr: PYME
+                        rutcli: '76091301'
+                        cencos: '0'
+                        codemp: 3
+                        razons: 'LABORATORIOS BIOPAS S.A'
+                        estado: ACTIVO
+                        forma_pago: FACTURA
+                        plazo_pago: '30 DIAS'
+                        codven: 7201778
+                        fecemi: '2023-02-21 00:00:00'
+                        fecven: '2023-03-23 00:00:00'
+                        totgen: 183201
+                        totsal: 183201
+                        dias_calc: 30
+                        dias: 30
+                        cobrador: KAGONZALEZ
+                        asegurado: '1'
+                        ciaseg: '2'
+                        clasifica: 'PYME PEQUEï¿½A'
+                        codestado: 1
+                        clase: DR
+                        rendida: S
+                        doc_financiero: '2500062609'
+                        cia_seg_sap: Innominado
+                        viapag: F
+                        debe_haber: S
+                        cme: null
+                        asignacion: '1802311293'
+                        ctacontable: '1104011001'
+                        feccontable: '2023-02-21 00:00:00'
+                        fecha_base: '20230221'
+                        moneda: CLP
+                        plapag: Z030
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
+                        texto_pos: null
+                        fecha_compensacion: '00000000'
+                        docto_compensacion: null
+                        bloqueo_gestion: null
+                        motivo_bloqueo: null
+                        cod_sociedad: '2000'
+                        id_sap_cliente: '1083372'
+                        id_sap_cencos: '1083372'
+                        observacion_adicional: '0001083372'
+                        dias_ven: -23
+                        provision: 'No'
+                        rango_morosidad: 'a. x Vencer'
+                        status: Vigente
+                        considerar: Si
+                        documento: 'Factura Sap'
+                        factura_asociada: '10440830'
+                      -
+                        fecha_proceso: '2023-02-28 00:00:00'
+                        numfac: 10492273
+                        equipo: 515
+                        vendedor: GIRIOS
+                        negocio_eerr: PYME
+                        rutcli: '96829360'
+                        cencos: '0'
+                        codemp: 3
+                        razons: 'SOAINT GESTION S.A.'
+                        estado: ACTIVO
+                        forma_pago: FACTURA
+                        plazo_pago: '30 DIAS'
+                        codven: 14616244
+                        fecemi: '2023-02-21 00:00:00'
+                        fecven: '2023-03-23 00:00:00'
+                        totgen: 118713
+                        totsal: 118713
+                        dias_calc: 30
+                        dias: 30
+                        cobrador: KAGONZALEZ
+                        asegurado: '1'
+                        ciaseg: '2'
+                        clasifica: 'PYME PEQUEï¿½A'
+                        codestado: 1
+                        clase: DR
+                        rendida: S
+                        doc_financiero: '2500062610'
+                        cia_seg_sap: Innominado
+                        viapag: F
+                        debe_haber: S
+                        cme: null
+                        asignacion: '1802311294'
+                        ctacontable: '1104011001'
+                        feccontable: '2023-02-21 00:00:00'
+                        fecha_base: '20230221'
+                        moneda: CLP
+                        plapag: Z030
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
+                        texto_pos: null
+                        fecha_compensacion: '00000000'
+                        docto_compensacion: null
+                        bloqueo_gestion: null
+                        motivo_bloqueo: null
+                        cod_sociedad: '2000'
+                        id_sap_cliente: '1747467'
+                        id_sap_cencos: '1747467'
+                        observacion_adicional: '0001747467'
+                        dias_ven: -23
+                        provision: 'No'
+                        rango_morosidad: 'a. x Vencer'
+                        status: Vigente
+                        considerar: Si
+                        documento: 'Factura Sap'
+                        factura_asociada: '10492273'
+                      -
+                        fecha_proceso: '2023-02-28 00:00:00'
                         numfac: 8416388
                         equipo: 516
                         vendedor: PRIOSECO
@@ -1075,8 +1467,8 @@ paths:
                         fecha_base: '20190617'
                         moneda: CLP
                         plapag: null
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
                         texto_pos: 'Contab. Factura                                                                                     '
                         fecha_compensacion: '00000000'
                         docto_compensacion: null
@@ -1086,7 +1478,7 @@ paths:
                         id_sap_cliente: '1745151'
                         id_sap_cencos: '1745151'
                         observacion_adicional: null
-                        dias_ven: 1356
+                        dias_ven: 1382
                         provision: Si
                         rango_morosidad: 'h. mÃ¡s de 180'
                         status: Vencido
@@ -1094,63 +1486,7 @@ paths:
                         documento: 'Factura Sap'
                         factura_asociada: '8416388'
                       -
-                        fecha_proceso: '2023-02-02 00:00:00'
-                        numfac: 8583988
-                        equipo: 516
-                        vendedor: VVALENZUELA
-                        negocio_eerr: 'DIMERC CORP'
-                        rutcli: '81698900'
-                        cencos: '0'
-                        codemp: 3
-                        razons: 'PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE'
-                        estado: ACTIVO
-                        forma_pago: FACTURA
-                        plazo_pago: '90 DIAS'
-                        codven: 10298980
-                        fecemi: '2019-08-07 00:00:00'
-                        fecven: '2019-09-06 00:00:00'
-                        totgen: 59912
-                        totsal: 59912
-                        dias_calc: 30
-                        dias: 30
-                        cobrador: FECARRASCO
-                        asegurado: '1'
-                        ciaseg: '1'
-                        clasifica: HOLDING
-                        codestado: 1
-                        clase: DR
-                        rendida: 'N'
-                        doc_financiero: '1800394474'
-                        cia_seg_sap: '0.00'
-                        viapag: null
-                        debe_haber: S
-                        cme: null
-                        asignacion: null
-                        ctacontable: '1104011001'
-                        feccontable: '2019-08-07 00:00:00'
-                        fecha_base: '20191105'
-                        moneda: CLP
-                        plapag: null
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
-                        texto_pos: 'Contab. RefacturaciÃƒÂ³n                                                                              '
-                        fecha_compensacion: '00000000'
-                        docto_compensacion: null
-                        bloqueo_gestion: null
-                        motivo_bloqueo: null
-                        cod_sociedad: '2000'
-                        id_sap_cliente: '1745241'
-                        id_sap_cencos: '1745241'
-                        observacion_adicional: null
-                        dias_ven: 1245
-                        provision: Si
-                        rango_morosidad: 'h. mÃ¡s de 180'
-                        status: Vencido
-                        considerar: Si
-                        documento: 'Factura Sap'
-                        factura_asociada: '8583988'
-                      -
-                        fecha_proceso: '2023-02-02 00:00:00'
+                        fecha_proceso: '2023-02-28 00:00:00'
                         numfac: 1747177
                         equipo: 516
                         vendedor: VVALENZUELA
@@ -1187,8 +1523,8 @@ paths:
                         fecha_base: '20190630'
                         moneda: CLP
                         plapag: null
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
                         texto_pos: 'Contab NC Bloq                                                                                      '
                         fecha_compensacion: '00000000'
                         docto_compensacion: null
@@ -1198,7 +1534,7 @@ paths:
                         id_sap_cliente: '1745241'
                         id_sap_cencos: '1745241'
                         observacion_adicional: null
-                        dias_ven: 1372
+                        dias_ven: 1398
                         provision: Si
                         rango_morosidad: 'h. mÃ¡s de 180'
                         status: Abono
@@ -1206,7 +1542,7 @@ paths:
                         documento: 'Ncr Sap'
                         factura_asociada: '8206311'
                       -
-                        fecha_proceso: '2023-02-02 00:00:00'
+                        fecha_proceso: '2023-02-28 00:00:00'
                         numfac: 8481269
                         equipo: 516
                         vendedor: PRIOSECO
@@ -1243,18 +1579,18 @@ paths:
                         fecha_base: '20190913'
                         moneda: CLP
                         plapag: null
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
                         texto_pos: 'Contab. Factura Refac                                                                               '
                         fecha_compensacion: '00000000'
                         docto_compensacion: null
-                        bloqueo_gestion: S
-                        motivo_bloqueo: 'Por RefacturaciÃƒÂ³n'
+                        bloqueo_gestion: null
+                        motivo_bloqueo: null
                         cod_sociedad: '2000'
                         id_sap_cliente: '1728873'
                         id_sap_cencos: '1728873'
                         observacion_adicional: null
-                        dias_ven: 1268
+                        dias_ven: 1294
                         provision: Si
                         rango_morosidad: 'h. mÃ¡s de 180'
                         status: Vencido
@@ -1262,7 +1598,7 @@ paths:
                         documento: 'Factura Sap'
                         factura_asociada: '8481269'
                       -
-                        fecha_proceso: '2023-02-02 00:00:00'
+                        fecha_proceso: '2023-02-28 00:00:00'
                         numfac: 8478921
                         equipo: 516
                         vendedor: PRIOSECO
@@ -1299,18 +1635,18 @@ paths:
                         fecha_base: '20191130'
                         moneda: CLP
                         plapag: null
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
                         texto_pos: 'Contab. RefacturaciÃƒÂ³n                                                                              '
                         fecha_compensacion: '00000000'
                         docto_compensacion: null
-                        bloqueo_gestion: S
-                        motivo_bloqueo: 'Por RefacturaciÃƒÂ³n'
+                        bloqueo_gestion: null
+                        motivo_bloqueo: null
                         cod_sociedad: '2000'
                         id_sap_cliente: '1728873'
                         id_sap_cencos: '1728873'
                         observacion_adicional: null
-                        dias_ven: 1190
+                        dias_ven: 1216
                         provision: Si
                         rango_morosidad: 'h. mÃ¡s de 180'
                         status: Vencido
@@ -1318,7 +1654,7 @@ paths:
                         documento: 'Factura Sap'
                         factura_asociada: '8478921'
                       -
-                        fecha_proceso: '2023-02-02 00:00:00'
+                        fecha_proceso: '2023-02-28 00:00:00'
                         numfac: 8478922
                         equipo: 516
                         vendedor: PRIOSECO
@@ -1355,18 +1691,18 @@ paths:
                         fecha_base: '20191130'
                         moneda: CLP
                         plapag: null
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
                         texto_pos: 'Contab. RefacturaciÃƒÂ³n                                                                              '
                         fecha_compensacion: '00000000'
                         docto_compensacion: null
-                        bloqueo_gestion: S
-                        motivo_bloqueo: 'Por RefacturaciÃƒÂ³n'
+                        bloqueo_gestion: null
+                        motivo_bloqueo: null
                         cod_sociedad: '2000'
                         id_sap_cliente: '1728873'
                         id_sap_cencos: '1728873'
                         observacion_adicional: null
-                        dias_ven: 1190
+                        dias_ven: 1216
                         provision: Si
                         rango_morosidad: 'h. mÃ¡s de 180'
                         status: Vencido
@@ -1374,63 +1710,7 @@ paths:
                         documento: 'Factura Sap'
                         factura_asociada: '8478922'
                       -
-                        fecha_proceso: '2023-02-02 00:00:00'
-                        numfac: 1902059
-                        equipo: 516
-                        vendedor: VVALENZUELA
-                        negocio_eerr: 'DIMERC CORP'
-                        rutcli: '81698900'
-                        cencos: '0'
-                        codemp: 3
-                        razons: 'PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE'
-                        estado: ACTIVO
-                        forma_pago: FACTURA
-                        plazo_pago: '90 DIAS'
-                        codven: 10298980
-                        fecemi: '2022-11-07 00:00:00'
-                        fecven: '2023-02-05 00:00:00'
-                        totgen: -33320
-                        totsal: -33320
-                        dias_calc: 90
-                        dias: 90
-                        cobrador: FECARRASCO
-                        asegurado: '1'
-                        ciaseg: '1'
-                        clasifica: HOLDING
-                        codestado: 1
-                        clase: DG
-                        rendida: S
-                        doc_financiero: '1600032130'
-                        cia_seg_sap: Nominado
-                        viapag: null
-                        debe_haber: H
-                        cme: null
-                        asignacion: null
-                        ctacontable: '1104011001'
-                        feccontable: '2022-11-07 00:00:00'
-                        fecha_base: '20221107'
-                        moneda: CLP
-                        plapag: Z090
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
-                        texto_pos: null
-                        fecha_compensacion: '00000000'
-                        docto_compensacion: null
-                        bloqueo_gestion: null
-                        motivo_bloqueo: null
-                        cod_sociedad: '2000'
-                        id_sap_cliente: '1745241'
-                        id_sap_cencos: '1745241'
-                        observacion_adicional: '0001745241'
-                        dias_ven: -3
-                        provision: 'No'
-                        rango_morosidad: 'a. x Vencer'
-                        status: Abono
-                        considerar: Si
-                        documento: 'Ncr Sap'
-                        factura_asociada: '10229362'
-                      -
-                        fecha_proceso: '2023-02-02 00:00:00'
+                        fecha_proceso: '2023-02-28 00:00:00'
                         numfac: 1744939
                         equipo: 517
                         vendedor: LIVASQUEZ
@@ -1467,8 +1747,8 @@ paths:
                         fecha_base: '20190516'
                         moneda: CLP
                         plapag: null
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
                         texto_pos: null
                         fecha_compensacion: '00000000'
                         docto_compensacion: null
@@ -1478,7 +1758,7 @@ paths:
                         id_sap_cliente: '3062829'
                         id_sap_cencos: '3062829'
                         observacion_adicional: null
-                        dias_ven: 1388
+                        dias_ven: 1414
                         provision: Si
                         rango_morosidad: 'h. mÃ¡s de 180'
                         status: Abono
@@ -1486,8 +1766,8 @@ paths:
                         documento: 'Ncr Sap'
                         factura_asociada: '8251748'
                       -
-                        fecha_proceso: '2023-02-02 00:00:00'
-                        numfac: 1778882
+                        fecha_proceso: '2023-02-28 00:00:00'
+                        numfac: 1812268
                         equipo: 516
                         vendedor: PRIOSECO
                         negocio_eerr: 'DIMERC CORP'
@@ -1499,10 +1779,10 @@ paths:
                         forma_pago: FACTURA
                         plazo_pago: '30 DIAS'
                         codven: 12498287
-                        fecemi: '2019-11-18 00:00:00'
-                        fecven: '2020-01-17 00:00:00'
-                        totgen: -2827
-                        totsal: -2827
+                        fecemi: '2020-07-27 00:00:00'
+                        fecven: '2020-09-25 00:00:00'
+                        totgen: -1225
+                        totsal: -1225
                         dias_calc: 60
                         dias: 60
                         cobrador: FECARRASCO
@@ -1511,20 +1791,20 @@ paths:
                         clasifica: HOLDING
                         codestado: 1
                         clase: DG
-                        rendida: FG
-                        doc_financiero: '1600049781'
+                        rendida: S
+                        doc_financiero: '1600026887'
                         cia_seg_sap: Nominado
                         viapag: null
                         debe_haber: H
                         cme: null
                         asignacion: null
                         ctacontable: '1104011001'
-                        feccontable: '2019-11-18 00:00:00'
-                        fecha_base: '20191118'
+                        feccontable: '2020-07-27 00:00:00'
+                        fecha_base: '20200727'
                         moneda: CLP
                         plapag: Z060
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
+                        fecha_reg: '2023-02-28 00:00:00'
+                        archivo: BSICL_BSID_20230228040005.dat
                         texto_pos: null
                         fecha_compensacion: '00000000'
                         docto_compensacion: null
@@ -1534,314 +1814,34 @@ paths:
                         id_sap_cliente: '1745151'
                         id_sap_cencos: '1745151'
                         observacion_adicional: '0001745151'
-                        dias_ven: 1112
+                        dias_ven: 886
                         provision: Si
                         rango_morosidad: 'h. mÃ¡s de 180'
                         status: Abono
                         considerar: Si
                         documento: 'Ncr Sap'
-                        factura_asociada: '8472828'
-                      -
-                        fecha_proceso: '2023-02-02 00:00:00'
-                        numfac: 1730559
-                        equipo: 509
-                        vendedor: JMUNOZG
-                        negocio_eerr: PYME
-                        rutcli: '76121140'
-                        cencos: '1'
-                        codemp: 3
-                        razons: 'RADIADORES GOMEZ LTDA'
-                        estado: ACTIVO
-                        forma_pago: FACTURA
-                        plazo_pago: '30 DIAS'
-                        codven: 9522552
-                        fecemi: '2019-01-14 00:00:00'
-                        fecven: '2019-02-13 00:00:00'
-                        totgen: -21408
-                        totsal: -21408
-                        dias_calc: 30
-                        dias: 30
-                        cobrador: VORREGO
-                        asegurado: '1'
-                        ciaseg: '2'
-                        clasifica: 'GRAN EMPRESA'
-                        codestado: 1
-                        clase: DG
-                        rendida: S
-                        doc_financiero: '1600000049'
-                        cia_seg_sap: Innominado
-                        viapag: null
-                        debe_haber: H
-                        cme: null
-                        asignacion: null
-                        ctacontable: '1104011001'
-                        feccontable: '2019-01-14 00:00:00'
-                        fecha_base: '20190114'
-                        moneda: CLP
-                        plapag: Z030
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
-                        texto_pos: null
-                        fecha_compensacion: '00000000'
-                        docto_compensacion: null
-                        bloqueo_gestion: null
-                        motivo_bloqueo: null
-                        cod_sociedad: '2000'
-                        id_sap_cliente: '1094832'
-                        id_sap_cencos: '1094832'
-                        observacion_adicional: '0001094832'
-                        dias_ven: 1450
-                        provision: Si
-                        rango_morosidad: 'h. mÃ¡s de 180'
-                        status: Abono
-                        considerar: Si
-                        documento: 'Ncr Sap'
-                        factura_asociada: '8127610'
-                      -
-                        fecha_proceso: '2023-02-02 00:00:00'
-                        numfac: 1786975
-                        equipo: 502
-                        vendedor: IVARGAS
-                        negocio_eerr: PYME
-                        rutcli: '87591800'
-                        cencos: '0'
-                        codemp: 3
-                        razons: 'SOC COMERCIALIZADORA Y DISTRIB DE PROD MEDICOS LTDA'
-                        estado: ACTIVO
-                        forma_pago: FACTURA
-                        plazo_pago: '30 DIAS'
-                        codven: 7368367
-                        fecemi: '2020-01-07 00:00:00'
-                        fecven: '2020-02-06 00:00:00'
-                        totgen: -1178
-                        totsal: -1178
-                        dias_calc: 30
-                        dias: 30
-                        cobrador: GVARGAS
-                        asegurado: '1'
-                        ciaseg: '2'
-                        clasifica: 'PYME PEQUEï¿½A'
-                        codestado: 1
-                        clase: DG
-                        rendida: S
-                        doc_financiero: '1600000623'
-                        cia_seg_sap: Innominado
-                        viapag: null
-                        debe_haber: H
-                        cme: null
-                        asignacion: null
-                        ctacontable: '1104011001'
-                        feccontable: '2020-01-07 00:00:00'
-                        fecha_base: '20200107'
-                        moneda: CLP
-                        plapag: Z030
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
-                        texto_pos: null
-                        fecha_compensacion: '00000000'
-                        docto_compensacion: null
-                        bloqueo_gestion: null
-                        motivo_bloqueo: null
-                        cod_sociedad: '2000'
-                        id_sap_cliente: '1330929'
-                        id_sap_cencos: '1330929'
-                        observacion_adicional: '0001330929'
-                        dias_ven: 1092
-                        provision: Si
-                        rango_morosidad: 'h. mÃ¡s de 180'
-                        status: Abono
-                        considerar: Si
-                        documento: 'Ncr Sap'
-                        factura_asociada: '8824609'
-                      -
-                        fecha_proceso: '2023-02-02 00:00:00'
-                        numfac: 1812008
-                        equipo: 509
-                        vendedor: PAVILESD
-                        negocio_eerr: PYME
-                        rutcli: '84078800'
-                        cencos: '0'
-                        codemp: 3
-                        razons: 'IMPORTADORA INDRA S A'
-                        estado: ACTIVO
-                        forma_pago: FACTURA
-                        plazo_pago: '30 DIAS'
-                        codven: 9974708
-                        fecemi: '2020-07-23 00:00:00'
-                        fecven: '2020-08-22 00:00:00'
-                        totgen: -1178
-                        totsal: -1178
-                        dias_calc: 30
-                        dias: 30
-                        cobrador: KAGONZALEZ
-                        asegurado: '1'
-                        ciaseg: '2'
-                        clasifica: 'GRAN EMPRESA'
-                        codestado: 1
-                        clase: DG
-                        rendida: S
-                        doc_financiero: '1600026612'
-                        cia_seg_sap: Innominado
-                        viapag: null
-                        debe_haber: H
-                        cme: null
-                        asignacion: null
-                        ctacontable: '1104011001'
-                        feccontable: '2020-07-23 00:00:00'
-                        fecha_base: '20200723'
-                        moneda: CLP
-                        plapag: Z030
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
-                        texto_pos: null
-                        fecha_compensacion: '00000000'
-                        docto_compensacion: null
-                        bloqueo_gestion: null
-                        motivo_bloqueo: null
-                        cod_sociedad: '2000'
-                        id_sap_cliente: '1745586'
-                        id_sap_cencos: '1745586'
-                        observacion_adicional: '0001745586'
-                        dias_ven: 894
-                        provision: Si
-                        rango_morosidad: 'h. mÃ¡s de 180'
-                        status: Abono
-                        considerar: Si
-                        documento: 'Ncr Sap'
-                        factura_asociada: '8938811'
-                      -
-                        fecha_proceso: '2023-02-02 00:00:00'
-                        numfac: 1816647
-                        equipo: 502
-                        vendedor: PABRAVO
-                        negocio_eerr: PYME
-                        rutcli: '78001160'
-                        cencos: '0'
-                        codemp: 3
-                        razons: 'LATCAM PAGOS INTERNACIONALES S.A.'
-                        estado: ACTIVO
-                        forma_pago: FACTURA
-                        plazo_pago: '30 DIAS'
-                        codven: 7542763
-                        fecemi: '2020-09-02 00:00:00'
-                        fecven: '2020-09-02 00:00:00'
-                        totgen: -1178
-                        totsal: -1178
-                        dias_calc: 0
-                        dias: 0
-                        cobrador: PMONTERO
-                        asegurado: '1'
-                        ciaseg: '2'
-                        clasifica: 'PYME PEQUEï¿½A'
-                        codestado: 1
-                        clase: DG
-                        rendida: S
-                        doc_financiero: '1600031377'
-                        cia_seg_sap: Innominado
-                        viapag: null
-                        debe_haber: H
-                        cme: null
-                        asignacion: null
-                        ctacontable: '1104011001'
-                        feccontable: '2020-09-02 00:00:00'
-                        fecha_base: '00000000'
-                        moneda: CLP
-                        plapag: null
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
-                        texto_pos: null
-                        fecha_compensacion: '00000000'
-                        docto_compensacion: null
-                        bloqueo_gestion: null
-                        motivo_bloqueo: null
-                        cod_sociedad: '2000'
-                        id_sap_cliente: '1139493'
-                        id_sap_cencos: '1139493'
-                        observacion_adicional: '0001139493'
-                        dias_ven: 883
-                        provision: Si
-                        rango_morosidad: 'h. mÃ¡s de 180'
-                        status: Abono
-                        considerar: Si
-                        documento: 'Ncr Sap'
-                        factura_asociada: '9319798'
-                      -
-                        fecha_proceso: '2023-02-02 00:00:00'
-                        numfac: 1826945
-                        equipo: 506
-                        vendedor: FPINTO
-                        negocio_eerr: GOBIERNO
-                        rutcli: '60910000'
-                        cencos: '3320'
-                        codemp: 3
-                        razons: 'UNIVERSIDAD DE CHILE'
-                        estado: ACTIVO
-                        forma_pago: FACTURA
-                        plazo_pago: '30 DIAS'
-                        codven: 16621873
-                        fecemi: '2020-10-21 00:00:00'
-                        fecven: '2020-11-20 00:00:00'
-                        totgen: -21408
-                        totsal: -21408
-                        dias_calc: 30
-                        dias: 30
-                        cobrador: BPULIDO
-                        asegurado: '1'
-                        ciaseg: '1'
-                        clasifica: GOBIERNO
-                        codestado: 1
-                        clase: DG
-                        rendida: S
-                        doc_financiero: '1600036611'
-                        cia_seg_sap: Nominado
-                        viapag: null
-                        debe_haber: H
-                        cme: null
-                        asignacion: null
-                        ctacontable: '1104011001'
-                        feccontable: '2020-10-21 00:00:00'
-                        fecha_base: '20201021'
-                        moneda: CLP
-                        plapag: Z030
-                        fecha_reg: '2023-02-02 00:00:00'
-                        archivo: BSICL_BSID_20230202040010.dat
-                        texto_pos: null
-                        fecha_compensacion: '00000000'
-                        docto_compensacion: null
-                        bloqueo_gestion: null
-                        motivo_bloqueo: null
-                        cod_sociedad: '2000'
-                        id_sap_cliente: '1716717'
-                        id_sap_cencos: '1716717'
-                        observacion_adicional: '0001716717'
-                        dias_ven: 804
-                        provision: Si
-                        rango_morosidad: 'h. mÃ¡s de 180'
-                        status: Abono
-                        considerar: Si
-                        documento: 'Ncr Sap'
-                        factura_asociada: '9408185'
+                        factura_asociada: '9167464'
                     items:
                       type: object
                       properties:
                         fecha_proceso:
                           type: string
-                          example: '2023-02-02 00:00:00'
+                          example: '2023-02-28 00:00:00'
                         numfac:
                           type: integer
-                          example: 1899122
+                          example: 10492272
                         equipo:
                           type: integer
-                          example: 516
+                          example: 502
                         vendedor:
                           type: string
-                          example: VVALENZUELA
+                          example: COJEDA
                         negocio_eerr:
                           type: string
-                          example: 'DIMERC CORP'
+                          example: PYME
                         rutcli:
                           type: string
-                          example: '81698900'
+                          example: '96858100'
                         cencos:
                           type: string
                           example: '0'
@@ -1850,7 +1850,7 @@ paths:
                           example: 3
                         razons:
                           type: string
-                          example: 'PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE'
+                          example: 'INVERSIONES BUTAMALAL S A'
                         estado:
                           type: string
                           example: ACTIVO
@@ -1859,88 +1859,88 @@ paths:
                           example: FACTURA
                         plazo_pago:
                           type: string
-                          example: '90 DIAS'
+                          example: '30 DIAS'
                         codven:
                           type: integer
-                          example: 10298980
+                          example: 12971585
                         fecemi:
                           type: string
-                          example: '2022-09-30 00:00:00'
+                          example: '2023-02-21 00:00:00'
                         fecven:
                           type: string
-                          example: '2022-12-29 00:00:00'
+                          example: '2023-03-23 00:00:00'
                         totgen:
                           type: integer
-                          example: -176287
+                          example: 353113
                         totsal:
                           type: integer
-                          example: -176287
+                          example: 353113
                         dias_calc:
                           type: integer
-                          example: 90
+                          example: 30
                         dias:
                           type: integer
-                          example: 90
+                          example: 30
                         cobrador:
                           type: string
-                          example: FECARRASCO
+                          example: PMONTERO
                         asegurado:
                           type: string
                           example: '1'
                         ciaseg:
                           type: string
-                          example: '1'
+                          example: '2'
                         clasifica:
                           type: string
-                          example: HOLDING
+                          example: 'GRAN EMPRESA'
                         codestado:
                           type: integer
                           example: 1
                         clase:
                           type: string
-                          example: DG
+                          example: DR
                         rendida:
                           type: string
                           example: S
                         doc_financiero:
                           type: string
-                          example: '1600029129'
+                          example: '2500062602'
                         cia_seg_sap:
                           type: string
-                          example: Nominado
+                          example: Innominado
                         viapag:
                           type: string
-                          example: null
+                          example: F
                         debe_haber:
                           type: string
-                          example: H
+                          example: S
                         cme:
                           type: string
                           example: null
                         asignacion:
                           type: string
-                          example: null
+                          example: '1802311286'
                         ctacontable:
                           type: string
                           example: '1104011001'
                         feccontable:
                           type: string
-                          example: '2022-09-30 00:00:00'
+                          example: '2023-02-21 00:00:00'
                         fecha_base:
                           type: string
-                          example: '20220930'
+                          example: '20230221'
                         moneda:
                           type: string
                           example: CLP
                         plapag:
                           type: string
-                          example: Z090
+                          example: Z030
                         fecha_reg:
                           type: string
-                          example: '2023-02-02 00:00:00'
+                          example: '2023-02-28 00:00:00'
                         archivo:
                           type: string
-                          example: BSICL_BSID_20230202040010.dat
+                          example: BSICL_BSID_20230228040005.dat
                         texto_pos:
                           type: string
                           example: null
@@ -1961,34 +1961,34 @@ paths:
                           example: '2000'
                         id_sap_cliente:
                           type: string
-                          example: '1745241'
+                          example: '1339975'
                         id_sap_cencos:
                           type: string
-                          example: '1745241'
+                          example: '1339975'
                         observacion_adicional:
                           type: string
-                          example: '0001745241'
+                          example: '0001339975'
                         dias_ven:
                           type: integer
-                          example: 35
+                          example: -23
                         provision:
                           type: string
                           example: 'No'
                         rango_morosidad:
                           type: string
-                          example: 'c. 31-60'
+                          example: 'a. x Vencer'
                         status:
                           type: string
-                          example: Abono
+                          example: Vigente
                         considerar:
                           type: string
                           example: Si
                         documento:
                           type: string
-                          example: 'Ncr Sap'
+                          example: 'Factura Sap'
                         factura_asociada:
                           type: string
-                          example: null
+                          example: '10492272'
                   first_page_url:
                     type: string
                     example: 'http://localhost/v1/cobranzas?page=1'
@@ -1997,10 +1997,10 @@ paths:
                     example: 1
                   last_page:
                     type: integer
-                    example: 3509
+                    example: 3250
                   last_page_url:
                     type: string
-                    example: 'http://localhost/v1/cobranzas?page=3509'
+                    example: 'http://localhost/v1/cobranzas?page=3250'
                   links:
                     type: array
                     example:
@@ -2053,12 +2053,12 @@ paths:
                         label: ...
                         active: false
                       -
-                        url: 'http://localhost/v1/cobranzas?page=3508'
-                        label: '3508'
+                        url: 'http://localhost/v1/cobranzas?page=3249'
+                        label: '3249'
                         active: false
                       -
-                        url: 'http://localhost/v1/cobranzas?page=3509'
-                        label: '3509'
+                        url: 'http://localhost/v1/cobranzas?page=3250'
+                        label: '3250'
                         active: false
                       -
                         url: 'http://localhost/v1/cobranzas?page=2'
@@ -2093,7 +2093,7 @@ paths:
                     example: 15
                   total:
                     type: integer
-                    example: 52634
+                    example: 48739
       tags:
         - 'Administrador Cobranza'
       security: []
@@ -2164,13 +2164,3 @@ tags:
   -
     name: Endpoints
     description: ''
-components:
-  securitySchemes:
-    default:
-      type: apiKey
-      name: apikey
-      in: query
-      description: ''
-security:
-  -
-    default: []

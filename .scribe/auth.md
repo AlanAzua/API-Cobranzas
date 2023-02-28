@@ -1,7 +1,3 @@
-# Authenticating requests
+# Autenticación
 
-To authenticate requests, include a query parameter **`apikey`** in the request.
-
-All authenticated endpoints are marked with a `requires authentication` badge in the documentation below.
-
-You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.
+Esta API no cuenta con autenticación.
